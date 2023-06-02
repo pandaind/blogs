@@ -63,8 +63,8 @@ params:
     imageHeight: 350
     imageTitle: my image
     buttons:
-#      - name: Posts
-#        url: posts
+      - name: Resume
+        url: https://docs.google.com/document/d/17B7XV9IqSzkT_iu9xAB_FVX-kI8vRx5h
 #      - name: Tags
 #        url: tags
 
@@ -96,12 +96,12 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
-    - identifier: categories
-      name: posts
+    - identifier: posts
+      name: Posts
       url: /posts/
       weight: 10
     - identifier: search
-      name: search
+      name: Search
       url: /search/
       weight: 20
 
