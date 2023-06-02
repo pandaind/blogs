@@ -1,4 +1,4 @@
-baseURL: "https://examplesite.com/"
+baseURL: "https://panda.ind.in/"
 title: PandaIND
 paginate: 5
 theme: PaperMod
@@ -14,7 +14,6 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: PandaIND
   description: "Chittaranjan Panda's personal blog"
   keywords: [Blog, Portfolio, Resume, Personal, Website, Chittaranjan Panda, PandaIND, Chittaranjan, Panda]
   author: Me
@@ -45,16 +44,14 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "<link / abs url>"
-    favicon16x16: "<link / abs url>"
-    favicon32x32: "<link / abs url>"
-    apple_touch_icon: "<link / abs url>"
-    safari_pinned_tab: "<link / abs url>"
+    favicon: "/img/logo.svg"
+    favicon16x16: "/img/logo.svg"
+    favicon32x32: "/img/logo.svg"
 
-  label:
-    text: "PandaIND"
-    icon: /apple-touch-icon.png
-    iconHeight: 35
+#  label:
+#    text: "PandaIND"
+#    icon: /img/logo.svg
+#    iconHeight: 35
 
   # profile-mode
   profileMode:
@@ -62,8 +59,8 @@ params:
     title: Chittaranjan Panda
     subtitle: "Software Engineer, Full Stack Developer, Open Source Enthusiast"
     imageUrl: "/img/profile.jpg"
-    imageWidth: 450
-    imageHeight: 400
+    imageWidth: 390
+    imageHeight: 350
     imageTitle: my image
     buttons:
 #      - name: Posts
@@ -73,15 +70,15 @@ params:
 
   socialIcons:
     - name: email
-      url: "https://github.com/"
+      url: "mailto:info@panda.consulting"
     - name: github
-      url: "https://github.com/"
+      url: "https://github.com/pandaind"
     - name: linkedin
-      url: "https://stackoverflow.com"
+      url: "https://linkedin.com/in/pandaind"
     - name: twitter
-      url: "https://twitter.com/"
+      url: "https://twitter.com/_expertpanda"
     - name: medium
-      url: "https://github.com/"
+      url: "https://medium.com/@pandaind"
 
   cover:
     hidden: true # hide everywhere but not in structured data
