@@ -96,9 +96,9 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
-    - identifier: posts
+    - identifier: blogs
       name: Blogs
-      url: /posts/
+      url: /blogs/
       weight: 10
     - identifier: search
       name: Search
