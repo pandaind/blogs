@@ -97,7 +97,7 @@ params:
 menu:
   main:
     - identifier: posts
-      name: Posts
+      name: Blogs
       url: /posts/
       weight: 10
     - identifier: search
