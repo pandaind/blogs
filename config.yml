@@ -61,7 +61,7 @@ params:
     imageUrl: "/img/profile-cf.jpg"
     imageWidth: 450
     imageHeight: 350
-    imageTitle: my image
+    imageTitle: chittaranjan
     buttons:
       - name: Resume
         url: https://docs.google.com/document/d/17B7XV9IqSzkT_iu9xAB_FVX-kI8vRx5h
