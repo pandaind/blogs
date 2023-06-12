@@ -1,4 +1,4 @@
-baseURL: "https://localhost/"
+baseURL: "http://localhost/"
 title: PandaIND
 paginate: 5
 theme: PaperMod
