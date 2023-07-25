@@ -72,7 +72,7 @@ params:
 
   socialIcons:
     - name: email
-      url: "mailto:info@panda.consulting"
+      url: "mailto:hello@panda.ind.in"
     - name: github
       url: "https://github.com/pandaind"
     - name: linkedin
