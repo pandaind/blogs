@@ -58,7 +58,7 @@ params:
     enabled: true # needs to be explicitly set
     title: Chittaranjan Panda
     subtitle: "Software Engineer, Full Stack Developer, Open Source Enthusiast"
-    imageUrl: "/img/profile-pnd.jpeg"
+    imageUrl: "/img/profile-cf.jpg"
     imageWidth: 450
     imageHeight: 350
     imageTitle: chittaranjan
