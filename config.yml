@@ -58,9 +58,9 @@ params:
     enabled: true # needs to be explicitly set
     title: Chittaranjan Panda
     subtitle: "Software Engineer, Full Stack Developer, Open Source Enthusiast"
-    imageUrl: "/img/profile-cf.jpg"
-    imageWidth: 450
-    imageHeight: 350
+    imageUrl: "/img/profile-cf.png"
+    imageWidth: 420
+    imageHeight: 400
     imageTitle: chittaranjan
     buttons:
       - name: Resume
