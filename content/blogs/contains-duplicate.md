@@ -1,6 +1,6 @@
 ---
 title: "Array Contains Duplicate"
-date: 2024-05-23T20:07:26+05:30
+date: 2024-05-23T14:07:26+05:30
 draft: false
 ---
 To determine if any value appears more than once in an integer array, the best approach is to use a set due to its optimal balance of time complexity, space complexity, and simplicity. Here's a comprehensive solution and explanation:
