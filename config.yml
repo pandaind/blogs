@@ -1,5 +1,5 @@
-baseURL: "https://panda.ind.in/"
-title: Panda IND
+baseURL: "https://pandac.in/"
+title: Panda C
 paginate: 5
 theme: PaperMod
 
@@ -14,9 +14,9 @@ minify:
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Chittaranjan Panda's personal blog"
-  keywords: [Blog, Portfolio, Resume, Personal, Website, Chittaranjan Panda, Panda IND, Chittaranjan, Panda]
-  author: PandaIND
+  description: "Chittaranjan Panda's personal page"
+  keywords: [Blog, Portfolio, Resume, Personal, Website, Chittaranjan Panda, Panda IND,Panda C, Chittaranjan, Panda]
+  author: Panda C
   # author: ["Me", "You"] # multiple authors
   images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
@@ -44,9 +44,9 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "/img/logo.svg"
-    favicon16x16: "/img/logo.svg"
-    favicon32x32: "/img/logo.svg"
+    favicon: "/img/name_logo.svg"
+    favicon16x16: "/img/name_logo.svg"
+    favicon32x32: "/img/name_logo.svg"
 
 #  label:
 #    text: "Panda IND"
@@ -57,8 +57,8 @@ params:
   profileMode:
     enabled: true # needs to be explicitly set
     title: Chittaranjan Panda
-    subtitle: "Software Engineer, Full Stack Developer, Open Source Enthusiast"
-    imageUrl: "/img/desk.png"
+    subtitle: "Coding Specialist, Multi-Platform Developer"
+    imageUrl: "/img/pandac_logo.svg"
     imageWidth: 420
     imageHeight: 400
     imageTitle: chittaranjan
@@ -76,7 +76,7 @@ params:
     - name: github
       url: "https://github.com/pandaind"
     - name: linkedin
-      url: "https://linkedin.com/in/pandaind"
+      url: "https://linkedin.com/in/pandac"
     - name: twitter
       url: "https://twitter.com/pandadebug"
     - name: medium
