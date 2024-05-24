@@ -1,5 +1,5 @@
 ---
-title: "Two Sum"
+title: "Group Anagrams"
 date: 2024-05-24T00:00:00+05:30
 draft: false
 ---
