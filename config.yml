@@ -36,7 +36,7 @@ params:
   comments: false
   hidemeta: false
   hideSummary: false
-  showtoc: false
+  showtoc: true
   tocopen: false
   ShareButtons: ["linkedin", "twitter"]
   searchHidden: false
@@ -56,7 +56,7 @@ params:
   # profile-mode
   profileMode:
     enabled: true # needs to be explicitly set
-    title: Chittaranjan Panda
+    title: Chittaranjan
     subtitle: "Coding Specialist, Multi-Platform Developer"
     imageUrl: "/img/pandac_logo.svg"
     imageWidth: 420
