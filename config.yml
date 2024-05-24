@@ -44,9 +44,9 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "/img/name_logo.svg"
-    favicon16x16: "/img/name_logo.svg"
-    favicon32x32: "/img/name_logo.svg"
+    favicon: "/img/pandac_logo.svg"
+    favicon16x16: "/img/pandac_logo.svg"
+    favicon32x32: "/img/pandac_logo.svg"
 
 #  label:
 #    text: "Panda IND"
