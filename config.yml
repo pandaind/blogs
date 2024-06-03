@@ -64,7 +64,7 @@ params:
     imageTitle: chittaranjan
     buttons:
       - name: Resume
-        url: https://docs.google.com/document/d/17B7XV9IqSzkT_iu9xAB_FVX-kI8vRx5h
+        url: /resume/
       - name: Schedule a call
         url: https://calendly.com/pandaind
 #      - name: Tags
