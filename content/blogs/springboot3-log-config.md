@@ -3,11 +3,7 @@ title: "Configuring Log Levels for Specific Loggers in a Spring Boot 3 Applicati
 date: 2024-06-08T23:00:27+05:30
 draft: true
 ---
-Sure! Here's a blog post on configuring log levels for specific loggers in a Spring Boot 3 application:
-
----
-
-Logging is an essential aspect of any application, providing critical insights and aiding in debugging and monitoring. In a Spring Boot 3 application, you can easily configure log levels for specific loggers to control the verbosity of logs for different packages or classes. In this blog, we'll explore how to achieve this using properties files, YAML configuration, and programmatic approaches.
+Logging is an essential aspect of any application, providing critical insights and aiding in debugging and monitoring. In a Spring Boot 3 application, you can easily configure log levels for specific loggers to control the verbosity of logs for different packages or classes. In this blog, we'll explore how to achieve this using properties files, YAML configuration, and programmatic approaches for both Logback and Log4j.
 
 ### Table of Contents
 1. [Introduction](#introduction)
@@ -15,11 +11,12 @@ Logging is an essential aspect of any application, providing critical insights a
 3. [Using application.yml](#using-applicationyml)
 4. [Programmatic Configuration](#programmatic-configuration)
 5. [Customizing Logback Configuration](#customizing-logback-configuration)
-6. [Conclusion](#conclusion)
+6. [Configuring Log4j](#configuring-log4j)
+7. [Conclusion](#conclusion)
 
 ### Introduction
 
-Spring Boot uses Logback as the default logging framework, but you can also configure other logging frameworks if needed. Here, we'll focus on configuring log levels using the default Logback setup.
+Spring Boot uses Logback as the default logging framework, but it also supports Log4j2. You can choose the logging framework that best fits your needs. In this blog, we'll cover configuration for both Logback and Log4j.
 
 ### Using `application.properties`
 
@@ -48,7 +45,9 @@ logging:
 
 ### Programmatic Configuration
 
-You can also configure log levels programmatically within your Spring Boot application. This approach is useful if you need to adjust log levels dynamically based on certain conditions.
+You can configure log levels programmatically within your Spring Boot application. This approach is useful if you need to adjust log levels dynamically based on certain conditions.
+
+#### Logback Programmatic Configuration
 
 ```java
 import org.springframework.boot.logging.LogLevel;
@@ -75,13 +74,11 @@ public class LogLevelConfigurer {
 }
 ```
 
-In this example, the `LoggingSystem` is injected into the `LogLevelConfigurer` class, and log levels are set in the `configureLogLevels` method, which is annotated with `@PostConstruct` to ensure it runs after the bean is created.
-
 ### Customizing Logback Configuration
 
-Spring Boot uses Logback by default, and you can customize its configuration by creating a `logback-spring.xml` file in the `src/main/resources` directory. This file allows for advanced logging configurations.
+If you're using Logback, you can customize its configuration by creating a `logback-spring.xml` file in the `src/main/resources` directory. This file allows for advanced logging configurations.
 
-Here’s an example `logback-spring.xml` configuration:
+#### Example `logback-spring.xml` Configuration
 
 ```xml
 <configuration>
@@ -105,8 +102,37 @@ Here’s an example `logback-spring.xml` configuration:
 </configuration>
 ```
 
-This configuration sets the log levels for different packages and classes and uses a custom log pattern for console output.
+### Configuring Log4j
+
+If you prefer to use Log4j, you can configure it by placing a `log4j2.xml` file in the `src/main/resources` directory of your Spring Boot application. Log4j will automatically detect this configuration file.
+
+#### Example `log4j2.xml` Configuration
+
+```xml
+<Configuration status="WARN">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss} - %msg%n"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="Console"/>
+        </Root>
+        <Logger name="com.yourpackage" level="debug" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="org.springframework.web" level="info" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+        <Logger name="com.yourpackage.YourClass" level="trace" additivity="false">
+            <AppenderRef ref="Console"/>
+        </Logger>
+    </Loggers>
+</Configuration>
+```
 
 ### Conclusion
 
-Configuring log levels for specific loggers in a Spring Boot 3 application is straightforward and can be done using properties files, YAML configuration, or programmatically. Additionally, you can customize the default Logback configuration to suit your needs. By fine-tuning log levels, you can control the verbosity of logs, making it easier to monitor and debug your application.
+Configuring log levels for specific loggers in a Spring Boot 3 application is straightforward and can be done using properties files, YAML configuration, or programmatically for both Logback and Log4j. Additionally, you can customize Logback's configuration or use Log4j by providing a configuration file. By fine-tuning log levels, you can control the verbosity of logs, making it easier to monitor and debug your application.
