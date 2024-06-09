@@ -61,7 +61,7 @@ params:
     imageUrl: "/img/pandac_logo.svg"
     imageWidth: 420
     imageHeight: 400
-    imageTitle: chittaranjan
+    imageTitle: pandac
     buttons:
       - name: Resume
         url: /resume/
