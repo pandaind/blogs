@@ -1,6 +1,6 @@
 baseURL: "https://pandac.in/"
 title: PandaC
-paginate: 5
+paginate: 10
 theme: PaperMod
 
 enableRobotsTXT: true
