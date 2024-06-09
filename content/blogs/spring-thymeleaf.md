@@ -1,7 +1,7 @@
 ---
 title: "Using Thymeleaf with Spring Boot"
 date: 2024-06-09T23:12:56+05:30
-draft: true
+draft: false
 ---
 Thymeleaf is a modern server-side Java template engine for web and standalone environments. It is particularly well-suited for Spring Boot applications, offering a natural way to create dynamic web pages. In this blog post, we'll explore how to integrate Thymeleaf with Spring Boot, create dynamic templates, and use Thymeleaf's powerful features to build a simple web application.
 
