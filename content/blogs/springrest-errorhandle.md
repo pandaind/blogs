@@ -1,5 +1,5 @@
 ---
-title: "Springrest Errorhandle"
+title: "Spring Boot 3 Rest: Error Handling"
 date: 2024-06-10T14:39:15+05:30
 draft: false
 ---
