@@ -1,5 +1,5 @@
 ---
-title: "Springrest Async"
+title: "Asynchronous processing in a Spring Boot REST"
 date: 2024-06-10T21:06:51+05:30
 draft: false
 ---
