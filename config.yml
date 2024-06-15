@@ -44,9 +44,9 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "/img/pandac_logo.svg"
-    favicon16x16: "/img/pandac_logo.svg"
-    favicon32x32: "/img/pandac_logo.svg"
+    favicon: "/img/name_logo.svg"
+    favicon16x16: "/img/name_logo.svg"
+    favicon32x32: "/img/name_logo.svg"
 
 #  label:
 #    text: "Panda IND"
@@ -58,7 +58,7 @@ params:
     enabled: true # needs to be explicitly set
     title: Chittaranjan
     subtitle: "Coding Specialist, Multi-Platform Developer"
-    imageUrl: "/img/pandac_logo.svg"
+    imageUrl: "/img/desk.png"
     imageWidth: 420
     imageHeight: 400
     imageTitle: pandac
