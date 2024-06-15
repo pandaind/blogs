@@ -58,7 +58,7 @@ params:
     enabled: true # needs to be explicitly set
     title: Chittaranjan
     subtitle: "Coding Specialist, Multi-Platform Developer"
-    imageUrl: "/img/desk.png"
+    imageUrl: "/img/coding.png"
     imageWidth: 420
     imageHeight: 400
     imageTitle: pandac
