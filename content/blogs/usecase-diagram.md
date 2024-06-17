@@ -1,5 +1,5 @@
 ---
-title: "Usecase Diagram"
+title: "Understanding Usecase Diagram"
 date: 2024-06-17T22:43:04+05:30
 draft: false
 ---
@@ -59,7 +59,7 @@ Let's create a simple use case diagram for a library management system:
 
 Here's a simplified version of what this diagram looks like:
 
-![library usecase](/content-img/library usecase.png)
+![library usecase](/content-img/library-usecase.png)
 
 In this diagram:
 
