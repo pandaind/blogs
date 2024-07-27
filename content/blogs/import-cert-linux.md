@@ -3,16 +3,7 @@ title: "How to Import a CA Certificate in Various Linux Distributions"
 date: 2024-07-27T21:21:51+05:30
 draft: false
 ---
-#### Table of Contents
-1. [Importing a CA Certificate in RHEL/CentOS](#rhel-centos)
-2. [Importing a CA Certificate in Ubuntu/Debian](#ubuntu-debian)
-3. [Importing a CA Certificate in Fedora](#fedora)
-4. [Importing a CA Certificate in SUSE/OpenSUSE](#suse-opensuse)
-5. [Importing a CA Certificate in Arch Linux](#arch-linux)
-6. [Importing a CA Certificate in Alpine Linux](#alpine-linux)
-7. [Verification](#verification)
-
-### Importing a CA Certificate in RHEL/CentOS <a name="rhel-centos"></a>
+### Importing a CA Certificate in RHEL/CentOS
 
 1. **Copy the Certificate**:
    ```bash
@@ -24,7 +15,7 @@ draft: false
    sudo update-ca-trust extract
    ```
 
-### Importing a CA Certificate in Ubuntu/Debian <a name="ubuntu-debian"></a>
+### Importing a CA Certificate in Ubuntu/Debian
 
 1. **Copy the Certificate**:
    ```bash
@@ -36,7 +27,7 @@ draft: false
    sudo update-ca-certificates
    ```
 
-### Importing a CA Certificate in Fedora <a name="fedora"></a>
+### Importing a CA Certificate in Fedora
 
 1. **Copy the Certificate**:
    ```bash
@@ -48,7 +39,7 @@ draft: false
    sudo update-ca-trust
    ```
 
-### Importing a CA Certificate in SUSE/OpenSUSE <a name="suse-opensuse"></a>
+### Importing a CA Certificate in SUSE/OpenSUSE
 
 1. **Copy the Certificate**:
    ```bash
@@ -60,7 +51,7 @@ draft: false
    sudo update-ca-certificates
    ```
 
-### Importing a CA Certificate in Arch Linux <a name="arch-linux"></a>
+### Importing a CA Certificate in Arch Linux
 
 1. **Copy the Certificate**:
    ```bash
@@ -72,7 +63,7 @@ draft: false
    sudo trust extract-compat
    ```
 
-### Importing a CA Certificate in Alpine Linux <a name="alpine-linux"></a>
+### Importing a CA Certificate in Alpine Linux
 
 1. **Install the `ca-certificates` package**:
    ```bash
@@ -89,7 +80,7 @@ draft: false
    sudo update-ca-certificates
    ```
 
-### Verification <a name="verification"></a>
+### Verification
 
 To verify that the CA certificate has been correctly imported and trusted, you can use the OpenSSL tool. Run the following command:
 
