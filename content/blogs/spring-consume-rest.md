@@ -2,6 +2,7 @@
 title: "Consuming REST Services in Spring Boot: RestTemplate, WebClient, and Feign Client"
 date: 2024-06-10T21:25:59+05:30
 draft: false
+tags: [ "Spring Boot 3" ]
 ---
 Spring Boot provides several robust options for consuming RESTful web services. In this blog post, we will explore three primary methods: `RestTemplate`, `WebClient`, and Feign Client. Each approach offers unique features and benefits suited for different use cases.
 

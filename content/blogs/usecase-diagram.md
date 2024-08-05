@@ -2,6 +2,7 @@
 title: "Understanding Usecase Diagram"
 date: 2024-06-17T22:43:04+05:30
 draft: false
+tags: [ "UML", "software design" ]
 ---
 ### What is a Use Case Diagram?
 

@@ -2,7 +2,7 @@
 title: "Coding Problems Cheatsheet"
 date: 2024-07-07T19:09:26+05:30
 draft: false
-hide: true
+tags: [ "coding challenge"]
 ---
 
 | Category              | Problem                                        | Key Concepts/Strategies                                  | Detailed Explanation                                         | Code Example                                                 |

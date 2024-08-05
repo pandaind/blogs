@@ -2,6 +2,7 @@
 title: "Valid Anagram"
 date: 2024-05-23T15:00:00+05:30
 draft: false
+tags: [ "coding challenge" ]
 ---
 To solve the "valid anagram" problem, we need to determine if two given strings are anagrams of each other. Two strings are anagrams if they contain the same characters with the same frequencies.
 

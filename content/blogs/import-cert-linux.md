@@ -2,6 +2,7 @@
 title: "How to Import a CA Certificate in Various Linux Distributions"
 date: 2024-07-27T21:21:51+05:30
 draft: false
+tags: [ "system administration" ]
 ---
 ### Importing a CA Certificate in RHEL/CentOS
 

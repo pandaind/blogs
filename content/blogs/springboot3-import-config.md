@@ -2,6 +2,7 @@
 title: "How to Reuse Configurations in Spring Boot 3 with @Import and @ImportResource"
 date: 2024-06-09T20:50:33+05:30
 draft: false
+tags: [ "Spring Boot 3", "Spring annotations" ]
 ---
 **Introduction:**
 

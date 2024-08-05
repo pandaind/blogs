@@ -2,6 +2,7 @@
 title: "Understanding UML Diagrams"
 date: 2024-06-17T21:59:14+05:30
 draft: false
+tags: [ "UML", "software design" ]
 ---
 Unified Modelling Language (UML) is a standardised way to visualize the design of a system. UML diagrams can be categorized into two main types: Structural Diagrams and Behavioral Diagrams. Understanding these categories helps in effectively modeling both the static and dynamic aspects of a system.
 

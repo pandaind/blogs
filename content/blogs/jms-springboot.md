@@ -2,6 +2,7 @@
 title: "Connecting Spring Boot 3 to Apache ActiveMQ Artemis with AMQP and Transactions"
 date: 2024-07-31T20:22:41+05:30
 draft: false
+tags: [ "Spring Boot 3", "Apache ActiveMQ Artemis"]
 ---
 
 ## Introduction

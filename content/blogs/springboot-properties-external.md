@@ -2,6 +2,7 @@
 title: "External Configuration Management in Spring Boot"
 date: 2024-05-13T20:28:51+05:30
 draft: false
+tags: [ "Spring Boot 3" ]
 ---
 ## Why Externalize Configuration?
 

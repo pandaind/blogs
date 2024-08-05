@@ -2,6 +2,7 @@
 title: "Group Anagrams"
 date: 2024-05-24T00:00:00+05:30
 draft: false
+tags: [ "coding challenge" ]
 ---
 ## Question: 
 Given an array of strings strs, group the anagrams together.

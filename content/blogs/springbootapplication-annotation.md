@@ -2,6 +2,7 @@
 title: "@SpringBootApplication in Spring Boot"
 date: 2024-05-12T20:07:26+05:30
 draft: false
+tags: [ "Spring Boot 3", "Spring annotations" ]
 ---
 In this post, we dive deep into one of Spring Boot's core annotations: `@SpringBootApplication`. We will explore its components, usage, and some advanced configurations. Whether you're new to Spring Boot or looking to deepen your understanding of this pivotal annotation, this article will provide you with valuable insights.
 

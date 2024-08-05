@@ -2,6 +2,7 @@
 title: "Stack in Java: Interview Guide"
 date: 2024-07-19T22:23:43+05:30
 draft: false
+tags: [ "Java", "data structures" ]
 ---
 #### 1. **Introduction to Stack in Java**
 

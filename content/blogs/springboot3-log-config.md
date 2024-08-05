@@ -2,6 +2,7 @@
 title: "Configuring Log Levels for Specific Loggers in a Spring Boot 3 Application"
 date: 2024-06-08T23:00:27+05:30
 draft: false
+tags: [ "Spring Boot 3" ]
 ---
 Logging is an essential aspect of any application, providing critical insights and aiding in debugging and monitoring. In a Spring Boot 3 application, you can easily configure log levels for specific loggers to control the verbosity of logs for different packages or classes. In this blog, we'll explore how to achieve this using properties files, YAML configuration, and programmatic approaches for both Logback and Log4j.
 

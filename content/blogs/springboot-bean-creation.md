@@ -2,6 +2,7 @@
 title: "Understanding Bean Creation in Spring Boot"
 date: 2024-05-12T21:00:52+05:30
 draft: false
+tags: [ "Spring Boot 3", "Spring framework" ]
 ---
 Understanding how to create and manage these beans effectively is crucial for leveraging the full power of Spring Boot. In this blog post, we'll dive into the various methods available for bean creation, focusing on annotations like `@Component`, `@Service`, `@Repository`, `@Controller`, and `@Bean`.
 

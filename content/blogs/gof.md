@@ -1,7 +1,7 @@
 ---
 title: "A Comprehensive Guide to Gang of Four (GoF) Design Patterns"
 date: 2023-08-28T12:52:21+05:30
-draft: false
+draft: true
 ---
 
 ### Creational Patterns - ABFPS (Abraham Became the First President of States)

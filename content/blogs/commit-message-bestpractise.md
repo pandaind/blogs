@@ -2,6 +2,7 @@
 title: "Clear and Effective Git Messages & Best Practices"
 date: 2024-06-09T16:41:39+05:30
 draft: false
+tags: [ "git" ]
 ---
 **Introduction**
 

@@ -2,6 +2,7 @@
 title: "Linked Lists in Java: An Interview Guide"
 date: 2024-07-07T23:05:48+05:30
 draft: false
+tags: [ "Java", "data structures" ]
 ---
 
 Linked lists are a fundamental data structure that every software developer should understand. They form the basis for many other data structures and algorithms. In this blog post, we'll explore how to implement a linked list in Java and cover some of the trickiest parts that you might encounter during interviews.

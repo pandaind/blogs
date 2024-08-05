@@ -2,6 +2,7 @@
 title: "Spring Boot Devtools to Speed Up Development"
 date: 2024-06-09T22:06:43+05:30
 draft: false
+tags: [ "Spring Boot Devtools", "Spring Boot 3" ]
 ---
 Spring Boot Devtools is a powerful tool that significantly improves the development experience by providing features like automatic restarts, live reload, and configurations that are optimized for development. In this blog post, we'll explore how to set up and use Spring Boot Devtools to speed up your development workflow.
 

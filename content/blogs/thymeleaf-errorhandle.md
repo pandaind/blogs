@@ -2,6 +2,7 @@
 title: "Spring Boot 3 with Thymeleaf: Error Handling"
 date: 2024-06-10T10:41:40+05:30
 draft: false
+tags: [ "Spring Boot 3", "Thymeleaf" ]
 ---
 In modern web applications, providing clear and user-friendly error messages is crucial for a good user experience. In this blog post, we'll explore how to customize error handling in a Spring Boot 3 application using Thymeleaf. We'll look at how to create custom error attributes, define a global error controller, and design a custom error page with Thymeleaf.
 

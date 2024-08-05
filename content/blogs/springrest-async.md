@@ -2,6 +2,7 @@
 title: "Asynchronous processing in a Spring Boot REST"
 date: 2024-06-10T21:06:51+05:30
 draft: false
+tags: [ "Spring Boot 3" ]
 ---
 Configuring asynchronous processing in a Spring Boot REST application allows you to handle requests without blocking the main thread, improving performance and responsiveness. Here's a step-by-step guide to enable and configure asynchronous processing in your Spring Boot REST application:
 

@@ -2,6 +2,7 @@
 title: "Spring Boot 3 Rest: Error Handling"
 date: 2024-06-10T14:39:15+05:30
 draft: false
+tags: [ "Spring Boot 3" ]
 ---
 Handling exceptions gracefully in a Spring Boot 3 REST application is crucial for providing clear and consistent error responses to the clients. In this section, we'll explore how to handle exceptions for REST controllers using `@ControllerAdvice` and `@ExceptionHandler` annotations, and customize error responses.
 

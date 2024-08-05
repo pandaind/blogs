@@ -2,6 +2,7 @@
 title: "Two Sum"
 date: 2024-05-24T00:00:00+05:30
 draft: false
+tags: [ "coding challenge" ]
 ---
 ## Question: 
 Given an array of integer nums and an integer target, return indices of the two numbers such that they add up to the target.

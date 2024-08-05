@@ -2,6 +2,7 @@
 title: "Docker Compose and Testcontainers with Spring Boot 3"
 date: 2024-06-09T21:40:37+05:30
 draft: false
+tags: [ "Spring Boot 3", "testing" ]
 ---
 In modern software development, containerization has become a key practice for ensuring consistent environments across different stages of development, testing, and deployment. Spring Boot 3 offers robust support for Docker Compose and Testcontainers, making it easier to manage multi-container applications and write comprehensive integration tests. This blog post will guide you through setting up Spring Boot 3 with Docker Compose, using custom container images, and leveraging Testcontainers for integration testing.
 
