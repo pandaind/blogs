@@ -2,7 +2,7 @@
 title: "Understanding the Iterator Design Pattern"
 date: 2024-08-08T14:00:27+05:30
 draft: false
-tags: [ "Design Patterns", "GOF", "software design" ]
+tags: [ "Design Patterns", "Behavioral GOF", "software design" ]
 ---
 
 The Iterator pattern provides a way to access the elements of a collection without exposing its internal structure. It promotes loose coupling between the collection and the code that uses it.

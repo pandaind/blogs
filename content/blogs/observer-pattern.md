@@ -2,7 +2,7 @@
 title: "Understanding the Observer Design Pattern"
 date: 2024-08-10T14:15:14+05:30
 draft: false
-tags: [ "Design Patterns", "GOF", "software design" ]
+tags: [ "Design Patterns", "Behavioral GOF", "software design" ]
 ---
 The Observer Pattern is a behavioral design pattern used to define a one-to-many dependency between objects. When one object (the subject) changes its state, all dependent objects (observers) are notified and updated automatically. This pattern is commonly used in scenarios where changes in one part of an application need to be reflected in other parts without tightly coupling the components.
 

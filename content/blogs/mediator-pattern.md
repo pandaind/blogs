@@ -2,7 +2,7 @@
 title: "Understanding the Mediator Pattern"
 date: 2024-08-08T11:00:27+05:30
 draft: false
-tags: [ "Design Patterns", "GOF", "software design" ]
+tags: [ "Design Patterns", "Behavioral GOF", "software design" ]
 ---
 The Mediator pattern promotes loose coupling between objects by introducing a mediator that handles communication between them. This reduces dependencies and makes the system more flexible and maintainable.
 

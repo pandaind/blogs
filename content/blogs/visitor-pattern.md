@@ -2,7 +2,7 @@
 title: "Understanding the Visitor Design Pattern"
 date: 2024-08-10T14:53:14+05:30
 draft: false
-tags: [ "Design Patterns", "GOF", "software design" ]
+tags: [ "Design Patterns", "Behavioral GOF", "software design" ]
 ---
 The Visitor Design Pattern is a behavioral pattern that allows you to define new operations on objects without changing their classes. It involves separating algorithms from the objects on which they operate. This pattern is useful when you need to perform operations on a group of objects with different types without altering their classes.
 

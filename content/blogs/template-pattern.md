@@ -2,7 +2,7 @@
 title: "Understanding the Template Design Pattern"
 date: 2024-08-10T14:20:14+05:30
 draft: false
-tags: [ "Design Patterns", "GOF", "software design" ]
+tags: [ "Design Patterns", "Behavioral GOF", "software design" ]
 ---
 The Template Design Pattern is a behavioral pattern that defines the skeleton of an algorithm in a base class but allows subclasses to override specific steps of the algorithm without changing its structure. This pattern is useful when you have a common sequence of steps that are shared among multiple subclasses but may vary in certain details.
 

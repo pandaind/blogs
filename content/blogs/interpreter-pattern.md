@@ -2,7 +2,7 @@
 title: "Understanding the Interpreter Design Pattern"
 date: 2024-08-09T11:00:27+05:30
 draft: false
-tags: [ "Design Patterns", "GOF", "software design" ]
+tags: [ "Design Patterns", "Behavioral GOF", "software design" ]
 ---
 The Interpreter Pattern is a design pattern used to define a grammatical representation of a language and provide an interpreter to deal with this grammar. It is useful for interpreting expressions in a language.
 

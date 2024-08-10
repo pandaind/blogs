@@ -2,7 +2,7 @@
 title: "Understanding the Momento Design Pattern"
 date: 2024-08-08T13:00:27+05:30
 draft: false
-tags: [ "Design Patterns", "GOF", "software design" ]
+tags: [ "Design Patterns", "Behavioral GOF", "software design" ]
 ---
 ## Understanding the Problem
 Imagine you're building a text editor. Users often make mistakes or want to revert changes. How can you allow them to undo their actions without exposing the internal state of the document?

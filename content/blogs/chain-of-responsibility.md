@@ -2,7 +2,7 @@
 title: "Understanding the Chain of Responsibility Design Pattern"
 date: 2024-08-09T16:00:27+05:30
 draft: false
-tags: [ "Design Patterns", "GOF", "software design" ]
+tags: [ "Design Patterns", "Behavioral GOF", "software design" ]
 ---
 
 Imagine you're sending a package. It goes through various checkpoints: sorting, security, customs, etc. Each checkpoint decides whether to handle the package or pass it on to the next. This is similar to the Chain of Responsibility pattern.

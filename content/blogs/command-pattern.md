@@ -2,7 +2,7 @@
 title: "Understanding the Command Design Pattern"
 date: 2024-08-10T13:35:04+05:30
 draft: false
-tags: [ "Design Patterns", "GOF", "software design" ]
+tags: [ "Design Patterns", "Behavioral GOF", "software design" ]
 ---
 
 The Command Design Pattern is a behavioural design pattern that turns a request into a stand-alone object containing all the information about the request. This pattern allows you to parameterize objects with operations, delay the execution of an operation, or queue a request for execution.
