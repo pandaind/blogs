@@ -1,6 +1,6 @@
 ---
 title: "Understanding the Composite Design Pattern"
-date: 2024-08-10T15:39:16+05:30
+date: 2024-08-16T15:39:16+05:30
 draft: false
 tags: [ "Design Patterns", "Structural GOF", "software design" ]
 ---

@@ -1,6 +1,6 @@
 ---
 title: "Understanding the Observer Design Pattern"
-date: 2024-08-10T14:15:14+05:30
+date: 2024-08-11T14:15:14+05:30
 draft: false
 tags: [ "Design Patterns", "Behavioral GOF", "software design" ]
 ---

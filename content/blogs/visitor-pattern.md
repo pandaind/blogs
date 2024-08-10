@@ -1,6 +1,6 @@
 ---
 title: "Understanding the Visitor Design Pattern"
-date: 2024-08-10T14:53:14+05:30
+date: 2024-08-13T14:53:14+05:30
 draft: false
 tags: [ "Design Patterns", "Behavioral GOF", "software design" ]
 ---

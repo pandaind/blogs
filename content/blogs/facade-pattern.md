@@ -1,6 +1,6 @@
 ---
 title: "Understanding the Facade Design Pattern"
-date: 2024-08-10T15:50:52+05:30
+date: 2024-08-18T15:50:52+05:30
 draft: false
 tags: [ "Design Patterns", "Structural GOF", "software design" ]
 ---
