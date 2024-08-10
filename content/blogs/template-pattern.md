@@ -1,6 +1,6 @@
 ---
 title: "Understanding the Template Design Pattern"
-date: 2024-08-10T14:15:14+05:30
+date: 2024-08-10T14:20:14+05:30
 draft: false
 tags: [ "Design Patterns", "GOF", "software design" ]
 ---
