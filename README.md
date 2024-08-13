@@ -1,2 +1,2 @@
 # blogs
-[pandac.in](https://pandac.in)
+[![Deploy site](https://github.com/pandaind/blogs/actions/workflows/publish.yaml/badge.svg)](https://github.com/pandaind/blogs/actions/workflows/publish.yaml)
