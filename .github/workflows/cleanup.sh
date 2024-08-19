@@ -4,7 +4,7 @@ echo "Starting to manage deployments in the $ENVIRONMENT_NAME environment of the
 
 # Get the list of deployments for the environment
 DEPLOYMENTS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
-    "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/deployments?environment=$ENVIRONMENT_NAME" | jq -r '.[] | select(.status == "active") | .id')
+    "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/deployments?environment=$ENVIRONMENT_NAME" | jq -r '.[] | .id')
 
 if [ -z "$DEPLOYMENTS" ]; then
     echo "No active deployments found in the $ENVIRONMENT_NAME environment."
