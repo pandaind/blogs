@@ -3,9 +3,8 @@
 echo "Starting to deactivate and delete deployments from the $ENVIRONMENT_NAME environment in the $REPO_OWNER/$REPO_NAME repository..."
 
 # Get the list of deployments for the github-pages environment
-DEPLOYMENTS=$(curl -H "Authorization: token $GITHUB_TOKEN" \
-    "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/deployments?environment=$ENVIRONMENT_NAME" \
-    2>/dev/null | jq -r '.[].id')
+DEPLOYMENTS=$(curl -s -H "Authorization: token $GITHUB_TOKEN" \
+    "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/deployments?environment=$ENVIRONMENT_NAME" | jq -r '.[].id')
 
 if [ -z "$DEPLOYMENTS" ]; then
     echo "No deployments found in the $ENVIRONMENT_NAME environment."
@@ -14,32 +13,28 @@ else
     # Deactivate and delete each deployment
     for deployment_id in $DEPLOYMENTS; do
         echo "Deactivating deployment with ID: $deployment_id"
-        
-        # Deactivate the deployment
-        STATUS_URL=$(curl -H "Authorization: token $GITHUB_TOKEN" \
-            "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/deployments/$deployment_id/statuses" \
-            2>/dev/null | jq -r '.[0].url')
 
-        curl -X POST -H "Authorization: token $GITHUB_TOKEN" \
+        # Attempt to deactivate deployment by posting a status
+        RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X POST -H "Authorization: token $GITHUB_TOKEN" \
             -H "Accept: application/vnd.github.v3+json" \
-            $STATUS_URL \
-            -d '{"state":"inactive"}'
+            "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/deployments/$deployment_id/statuses" \
+            -d '{"state":"inactive"}')
 
-        if [ $? -eq 0 ]; then
+        if [ "$RESPONSE" -eq 201 ]; then
             echo "Successfully deactivated deployment ID: $deployment_id"
         else
-            echo "Failed to deactivate deployment ID: $deployment_id"
+            echo "Failed to deactivate deployment ID: $deployment_id with HTTP response $RESPONSE"
             continue
         fi
 
         echo "Deleting deployment with ID: $deployment_id"
-        curl -X DELETE -H "Authorization: token $GITHUB_TOKEN" \
-            "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/deployments/$deployment_id"
+        RESPONSE=$(curl -s -o /dev/null -w "%{http_code}" -X DELETE -H "Authorization: token $GITHUB_TOKEN" \
+            "https://api.github.com/repos/$REPO_OWNER/$REPO_NAME/deployments/$deployment_id")
 
-        if [ $? -eq 0 ]; then
+        if [ "$RESPONSE" -eq 204 ]; then
             echo "Successfully deleted deployment ID: $deployment_id"
         else
-            echo "Failed to delete deployment ID: $deployment_id"
+            echo "Failed to delete deployment ID: $deployment_id with HTTP response $RESPONSE"
         fi
     done
 fi
