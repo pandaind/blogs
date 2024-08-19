@@ -52,7 +52,7 @@ BPUT - Odisha (2008 - 2012)
 March 2023 - Present
 - Led migration of API management portal to Azure Cloud, ensuring seamless integration and delivery.
 - Facilitated Agile ceremonies, managing sprints and retrospectives for continuous improvement.
-- Collaborated with stakeholders to prioritize backlog and provide technical support on Azure Cloud and API management.
+- Collaborated with stakeholders to prioritize backlog and provide technical support on Azure Cloud migration and API management.
 
 **Module Lead**  
 *Eurofins IT Delivery Center*  
