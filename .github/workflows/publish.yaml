@@ -90,4 +90,4 @@ jobs:
         ENVIRONMENT_NAME: "github-pages"
       run: |
         chmod +x .github/workflows/cleanup.sh
-        .github/workflows/cleanup.sh
+        ./.github/workflows/cleanup.sh
