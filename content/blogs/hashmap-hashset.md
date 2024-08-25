@@ -1,6 +1,6 @@
 ---
 title: "Understanding Internal Implementation of HashMap and HashSet in Java"
-date: 2024-08-21T22:07:16+05:30
+date: 2024-08-25T19:07:16+05:30
 draft: fasle
 tags: [ "java"]
 ---
@@ -12,6 +12,8 @@ When working with Java, two commonly used data structures are `HashMap` and `Has
 A `HashMap` is a data structure that stores key-value pairs. It allows you to store data in a way that lets you quickly retrieve the value associated with a specific key. The keys in a `HashMap` must be unique.
 
 ### Internal Working of HashMap
+
+![hashmap](/content-img/hashmap.png)
 
 #### Buckets and Hash Codes
 
@@ -65,6 +67,8 @@ In this example, if `"paple"` and `"apple"` happen to produce the same hash code
 A `HashSet` is a collection that stores unique elements. It does not allow duplicate entries, and it is implemented using a `HashMap` internally.
 
 ### Internal Working of HashSet
+
+![hashmap](/content-img/hashset.png)
 
 - **Underlying HashMap**: When you add an element to a `HashSet`, it is stored as a key in a `HashMap` with a dummy value (usually `Boolean.TRUE`). This is because `HashMap` keys must be unique, which ensures that the `HashSet` only stores unique elements.
 
