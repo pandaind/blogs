@@ -39,28 +39,58 @@ A collision occurs when two different keys produce the same hash code, resulting
 
 ```java
 import java.util.HashMap;
+import java.util.Objects;
 
-public class HashMapExample {
-    public static void main(String[] args) {
-        HashMap<String, Integer> map = new HashMap<>();
+public class Main {
+  public static void main(String[] args) {
+    HashMap<CustomKey, String> map = new HashMap<>();
 
-        // Adding key-value pairs
-        map.put("apple", 1);
-        map.put("banana", 2);
-        map.put("orange", 3);
+    CustomKey key1 = new CustomKey(1, "Key1");
+    CustomKey key2 = new CustomKey(1, "Key2"); // Same hash code as key1
 
-        // Retrieving values
-        System.out.println("Value for key 'apple': " + map.get("apple"));
-        System.out.println("Value for key 'banana': " + map.get("banana"));
+    System.out.println("Key1: " + key1.hashCode());
+    System.out.println("Key2: " + key2.hashCode());
 
-        // Handling collision by putting another key with the same hash code
-        map.put("paple", 4); // Assuming "paple" produces the same hash code as "apple"
-        System.out.println("Value for key 'paple': " + map.get("paple"));
-    }
+    map.put(key1, "Value1");
+    map.put(key2, "Value2");
+
+    System.out.println("Key1: " + map.get(key1));
+    System.out.println("Key2: " + map.get(key2));
+  }
+}
+
+class CustomKey {
+  private int id;
+  private String name;
+
+  public CustomKey(int id, String name) {
+    this.id = id;
+    this.name = name;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id); // Simplified hash code to force collision
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null || getClass() != obj.getClass())
+      return false;
+    CustomKey customKey = (CustomKey)obj;
+    return id == customKey.id && Objects.equals(name, customKey.name);
+  }
 }
 ```
-
-In this example, if `"paple"` and `"apple"` happen to produce the same hash code, they will both be stored in the same bucket, and Java will handle this collision internally.
+```bash
+Key1: 32
+Key2: 32
+Key1: Value1
+Key2: Value2
+```
+The code defines a `CustomKey` class with overridden `hashCode` and `equals` methods to demonstrate hash collisions in a `HashMap`. Two `CustomKey` objects with the same `id` but different `name` values are created, resulting in the same hash code but different equality checks. The `HashMap` stores and retrieves values using these keys, showing how collisions are handled.
 
 ### What is a HashSet?
 
@@ -89,28 +119,68 @@ Collisions in a `HashSet` are handled in the same way as in a `HashMap`, since `
 
 ```java
 import java.util.HashSet;
+import java.util.Objects;
 
-public class HashSetExample {
-    public static void main(String[] args) {
-        HashSet<String> set = new HashSet<>();
+public class Main {
+  public static void main(String[] args) {
+    HashSet<CustomKey> set = new HashSet<>();
 
-        // Adding elements
-        set.add("apple");
-        set.add("banana");
-        set.add("orange");
+    CustomKey key1 = new CustomKey(1, "Key1");
+    CustomKey key2 = new CustomKey(1, "Key2"); // Same hash code as key1
 
-        // Checking for existence
-        System.out.println("Set contains 'apple': " + set.contains("apple"));
-        System.out.println("Set contains 'banana': " + set.contains("banana"));
+    System.out.println("Key1: " + key1.hashCode());
+    System.out.println("Key2: " + key2.hashCode());
+    System.out.println("equals: " + key1.equals(key2));
 
-        // Handling collision by adding another element with the same hash code
-        set.add("paple"); // Assuming "paple" produces the same hash code as "apple"
-        System.out.println("Set contains 'paple': " + set.contains("paple"));
-    }
+    set.add(key1);
+    set.add(key2);
+
+    System.out.println("HashSet: " + set);
+  }
+}
+
+class CustomKey {
+  private int id;
+  private String name;
+
+  public CustomKey(int id, String name) {
+    this.id = id;
+    this.name = name;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(id); // Simplified hash code to force collision
+  }
+
+  @Override
+  public boolean equals(Object obj) {
+    if (this == obj)
+      return true;
+    if (obj == null || getClass() != obj.getClass())
+      return false;
+    CustomKey customKey = (CustomKey)obj;
+    return id == customKey.id && Objects.equals(name, customKey.name);
+  }
+
+  @Override
+  public String toString() {
+    return "CustomKey{id=" + id + ", name='" + name + "'}";
+  }
 }
 ```
+```bash
+Key1: 32
+Key2: 32
+HashSet: [CustomKey{id=1, name='Key1'}, CustomKey{id=1, name='Key2'}]
+```
+A `HashSet` in Java ensures uniqueness of its elements based on both the `hashCode` and `equals` methods. Here's how it works:
 
-In this example, if `"paple"` and `"apple"` produce the same hash code, they will both be stored in the same bucket. The `HashSet` ensures that each element is unique, and handles any collisions internally.
+1. **Hashing**: When an element is added to the `HashSet`, its `hashCode` method is called to determine the hash code of the element. This hash code is used to find the appropriate bucket.
+
+2. **Equality**: If the hash code matches an existing element's hash code in the same bucket, the `equals` method is then called to check if the two elements are actually equal. If `equals` returns `true`, the new element is considered a duplicate and is not added to the set.
+
+In the provided code, the `CustomKey` class overrides both `hashCode` and `equals` methods. The `hashCode` method is simplified to force a collision by only using the `id` field, while the `equals` method checks both `id` and `name` fields for equality. This means that even if two `CustomKey` objects have the same `id` (and thus the same hash code), they will only be considered equal if both their `id` and `name` fields match.
 
 ### Conclusion
 
