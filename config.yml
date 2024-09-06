@@ -102,10 +102,10 @@ menu:
     #   name: Blogs
     #   url: /blogs/
     #   weight: 10
-    # - identifier: search
-    #   name: Search
-    #   url: /search/
-    #   weight: 20
+    - identifier: search
+      name: Search
+      url: /search/
+      weight: 20
     # - identifier: projects
     #   name: Projects
     #   url: /projects/
