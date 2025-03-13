@@ -1,7 +1,7 @@
 ---
 title: "Event-Driven Architecture (EDA): The Key to Scalable, Real-Time Applications"
 date: 2025-03-18T00:49:30+05:30
-draft: true
+draft: false
 tags: [ "software design" ]
 ---
 
