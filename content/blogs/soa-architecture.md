@@ -1,7 +1,7 @@
 ---
 title: "Service-Oriented Architecture (SOA): The Evolution of Modular Software Design"
 date: 2025-03-16T00:40:51+05:30
-draft: true
+draft: false
 tags: [ "software design" ]
 ---
 
