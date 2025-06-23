@@ -71,6 +71,10 @@ params:
 #      - name: Tags
 #        url: tags
 
+  # homeInfoParams:
+  #   Title: Hi there wave
+  #   Content: Can be Info, links, about...
+
   socialIcons:
     - name: email
       url: "mailto:connect@pandac.in"
@@ -115,10 +119,10 @@ menu:
     #   name: Tags
     #   url: /tags/
     #   weight: 30
-    - identifier: archive
-      name: Archive
-      url: /archives/
-      weight: 20
+    # - identifier: archive
+    #   name: Archive
+    #   url: /archives/
+    #   weight: 20
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true
