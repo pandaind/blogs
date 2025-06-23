@@ -1,0 +1,43 @@
+{{/*
+    Audio Shortcode
+    Embeds an HTML5 audio player.
+
+    Usage:
+    {{< audio src="path/to/audio.mp3" [title="Audio Title"] [caption="A caption for the audio."] [preload="metadata"] >}}
+
+    Parameters:
+    - src (required): Path to the audio file.
+    - title (optional): A title for the audio, displayed above the player.
+    - caption (optional): A caption displayed below the player.
+    - preload (optional): Sets the HTML5 preload attribute (auto, metadata, none). Defaults to "metadata".
+    - Other HTML5 audio attributes (loop, muted, etc.) are also passed through.
+*/}}
+
+{{- $src := .Get "src" -}}
+{{- if not $src -}}
+    {{- errorf "Missing 'src' attribute for audio shortcode in %s" .Page.File.Path -}}
+{{- end -}}
+
+{{- $audioResource := "" -}}
+{{- $audioURL := "" -}}
+
+{{/* Check if the src is a Page Resource */}}
+{{- with .Page.Resources.GetMatch $src -}}
+    {{- $audioResource = . -}}
+    {{- $audioURL = $audioResource.RelPermalink -}}
+{{- else -}}
+    {{/* Fallback to a static or absolute URL */}}
+    {{- $audioURL = $src | relURL -}}
+{{- end -}}
+
+<figure class="audio-container">
+    {{ with .Get "title" }}<p class="audio-title"><strong>{{ . }}</strong></p>{{ end }}
+    <audio controls
+        src="{{ $audioURL }}"
+        preload="{{ .Get "preload" | default "metadata" }}"
+        {{ with .Get "loop" }} loop{{end}}
+        {{ with .Get "muted" }} muted{{end}}>
+        Your browser does not support the audio element.
+    </audio>
+    {{ with .Get "caption" }}<figcaption>{{ . | markdownify }}</figcaption>{{ end }}
+</figure>

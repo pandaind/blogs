@@ -4,6 +4,8 @@ date: 2024-04-11T16:53:41+05:30
 draft: fasle
 tags: [ "SOLID principles", "software design" ]
 ---
+{{< audio src="/audio/solid.wav" >}}
+
 **Introduction:**
 
 The SOLID principles are a cornerstone for designing robust, maintainable, and scalable systems. These principles, introduced by Robert C. Martin, provide a foundation for good software design. In this article, we'll break down each principle with examples, making it easy for beginners to grasp these essential concepts.
