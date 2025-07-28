@@ -41,7 +41,7 @@ params:
   tocopen: false
   ShareButtons: ["linkedin", "twitter"]
   searchHidden: false
-  customCSS: ["scss/custom.scss"]
+  customCSS: ["css/project.css"]
 
 
   assets:
