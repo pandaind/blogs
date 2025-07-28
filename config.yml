@@ -41,6 +41,8 @@ params:
   tocopen: false
   ShareButtons: ["linkedin", "twitter"]
   searchHidden: false
+  customCSS: ["css/custom.css"]
+
 
   assets:
     # disableHLJS: true # to disable highlight.js
@@ -112,10 +114,10 @@ menu:
       name: Search
       url: /search/
       weight: 10
-    # - identifier: projects
-      # name: Projects
-      # url: /projects/
-      # weight: 50
+    - identifier: projects
+      name: Projects
+      url: /project/
+      weight: 50
     - identifier: tags
       name: Tags
       url: /tags/
