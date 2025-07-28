@@ -1,7 +1,7 @@
 baseURL: "https://pandac.in/"
 title: PandaC
 pagination:
-  paginate: 10
+  paginate: 3
 theme: PaperMod
 
 enableRobotsTXT: true
@@ -24,6 +24,9 @@ params:
   defaultTheme: light # dark, light, auto
   disableThemeToggle: false
 
+  # Section configuration
+  mainSections: ["blogs"]  # Only blogs appear on home page
+  
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
@@ -41,7 +44,7 @@ params:
   tocopen: false
   ShareButtons: ["linkedin", "twitter"]
   searchHidden: false
-  customCSS: ["project.css"]
+
 
 
   assets:
@@ -50,6 +53,7 @@ params:
     favicon: "/img/favico/favicon.ico"
     favicon16x16: "/img/favico/favicon-16x16.png"
     favicon32x32: "/img/favico/favicon-32x32.png"
+    customCSS: "/css/custom.css"
 
 #  label:
 #    text: "Panda IND"
@@ -110,22 +114,27 @@ menu:
       name: Blogs
       url: /blogs/
       weight: 20
+      pre: "<i class='fas fa-blog'></i> "
     - identifier: search
       name: Search
       url: /search/
       weight: 10
+      pre: "<i class='fas fa-search'></i> "
     - identifier: projects
-      name: Projects
+      name: Lab
       url: /project/
       weight: 50
+      pre: "<i class='fas fa-flask'></i> "
     - identifier: tags
       name: Tags
       url: /tags/
       weight: 30
+      pre: "<i class='fas fa-tags'></i> "
     # - identifier: archive
-      # name: Archive
-      # url: /archives/
-      # weight: 40
+    #   name: Archive
+    #   url: /archives/
+    #   weight: 40
+    #   pre: "<i class='fas fa-archive'></i> "
 
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
 pygmentsUseClasses: true

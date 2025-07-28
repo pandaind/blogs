@@ -1,0 +1,411 @@
+{{ define "main" }}
+<article class="project-detail">
+  <header class="project-header">
+    <div class="project-meta">
+      <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "January 2, 2006" }}</time>
+      <!-- {{ with .Params.status }}
+        <span class="status-badge status-{{ . | lower }}">{{ . }}</span>
+      {{ end }} -->
+    </div>
+    <h1>{{ .Title }}</h1>
+    <p class="project-description">{{ .Params.description }}</p>
+    
+    {{ with .Params.thumbnail }}
+      <div class="project-image">
+        <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy">
+      </div>
+    {{ end }}
+
+    <div class="project-links">
+      {{ with .Params.github }}
+        <a href="{{ . }}" target="_blank" class="btn-primary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          View on GitHub
+        </a>
+      {{ end }}
+      {{ with .Params.demo }}
+        <a href="{{ . }}" target="_blank" class="btn-secondary">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
+          </svg>
+          Live Demo
+        </a>
+      {{ end }}
+      <a href="/projects/" class="btn-outline">← Back to Projects</a>
+    </div>
+  </header>
+
+  <div class="project-content">
+    <div class="content-main">
+      {{ .Content }}
+    </div>
+
+    <aside class="project-sidebar">
+      {{ with .Params.tech_stack }}
+      <div class="tech-section">
+        <h3><i class="fas fa-cogs"></i> Technology Stack</h3>
+        <div class="tech-list">
+          {{ range . }}
+            <span class="tech-item">{{ . }}</span>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+
+      {{ with .Params.tags }}
+      <div class="tags-section">
+        <h3><i class="fas fa-tags"></i> Tags</h3>
+        <div class="tags-list">
+          {{ range . }}
+            <a href="/tags/{{ . | urlize }}/" class="tag-link">{{ . }}</a>
+          {{ end }}
+        </div>
+      </div>
+      {{ end }}
+
+      <div class="project-info">
+        <h3><i class="fas fa-info-circle"></i> Project Details</h3>
+        <dl class="info-list">
+          <!-- <dt>Started</dt>
+          <dd>{{ .Date.Format "January 2006" }}</dd> -->
+          {{ with .Params.status }}
+          <dt>Status</dt>
+          <dd>{{ . }}</dd>
+          {{ end }}
+          {{ with .Params.github }}
+          <dt>Repository</dt>
+          <dd><a href="{{ . }}" target="_blank">GitHub</a></dd>
+          {{ end }}
+          {{ with .Params.demo }}
+          <dt>Demo</dt>
+          <dd><a href="{{ . }}" target="_blank">Live Site</a></dd>
+          {{ end }}
+        </dl>
+      </div>
+
+      <div class="share-section">
+        <h3><i class="fas fa-share-alt"></i> Share Project</h3>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url={{ .Permalink | absURL }}&text={{ .Title }}" target="_blank" class="share-btn twitter">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+            </svg>
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/sharing/share-offsite/?url={{ .Permalink | absURL }}" target="_blank" class="share-btn linkedin">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+            </svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <nav class="project-navigation">
+    {{ with .PrevInSection }}
+    <a href="{{ .RelPermalink }}" class="nav-prev">
+      <span class="nav-label">← Previous Project</span>
+      <span class="nav-title">{{ .Title }}</span>
+    </a>
+    {{ end }}
+    {{ with .NextInSection }}
+    <a href="{{ .RelPermalink }}" class="nav-next">
+      <span class="nav-label">Next Project →</span>
+      <span class="nav-title">{{ .Title }}</span>
+    </a>
+    {{ end }}
+  </nav>
+</article>
+
+<style>
+.project-detail {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.project-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.project-meta {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+  color: var(--secondary);
+}
+
+.project-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.project-description {
+  font-size: 1.2rem;
+  color: var(--secondary);
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  line-height: 1.6;
+}
+
+.project-image {
+  margin: 2rem 0;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.project-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.project-links {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary);
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-outline:hover {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--theme);
+}
+
+.project-content {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 3rem;
+  align-items: start;
+}
+
+.content-main {
+  color: var(--primary);
+  line-height: 1.7;
+}
+
+.content-main h2 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary);
+  padding-bottom: 0.5rem;
+}
+
+.content-main h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--primary);
+}
+
+.content-main ul, .content-main ol {
+  margin: 1rem 0;
+  padding-left: 2rem;
+}
+
+.content-main li {
+  margin-bottom: 0.5rem;
+}
+
+.project-sidebar {
+  position: sticky;
+  top: 2rem;
+}
+
+.project-sidebar > div {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.project-sidebar h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1rem;
+  color: var(--primary);
+}
+
+.tech-list, .tags-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-item {
+  background: var(--primary);
+  color: var(--theme);
+  padding: 0.25rem 0.75rem;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.tag-link {
+  background: var(--theme);
+  color: var(--primary);
+  padding: 0.25rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.tag-link:hover {
+  background: var(--primary);
+  color: var(--theme);
+}
+
+.info-list {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.info-list dt {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.info-list dd {
+  margin: 0;
+  color: var(--secondary);
+}
+
+.info-list dd a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.info-list dd a:hover {
+  text-decoration: underline;
+}
+
+.share-buttons {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.share-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.share-btn.twitter {
+  background: #1DA1F2;
+  color: white;
+}
+
+.share-btn.linkedin {
+  background: #0077B5;
+  color: white;
+}
+
+.share-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.project-navigation {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+}
+
+.nav-prev, .nav-next {
+  padding: 1.5rem;
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-prev:hover, .nav-next:hover {
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+.nav-next {
+  text-align: right;
+}
+
+.nav-label {
+  font-size: 0.9rem;
+  color: var(--secondary);
+  margin-bottom: 0.5rem;
+}
+
+.nav-title {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+@media (max-width: 768px) {
+  .project-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .project-sidebar {
+    position: static;
+  }
+  
+  .project-navigation {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .nav-next {
+    text-align: left;
+  }
+  
+  .project-header h1 {
+    font-size: 2rem;
+  }
+  
+  .project-links {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+</style>
+{{ end }}

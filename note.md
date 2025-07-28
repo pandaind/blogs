@@ -1,0 +1,1 @@
+hugo new --kind project content/project/my-new-project.md

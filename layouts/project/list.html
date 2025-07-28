@@ -1,11 +1,196 @@
-<section class="project-list">
-  <h1>{{ .Title }}</h1>
-  {{ range .Pages }}
-    <div class="project-card">
-      <img src="{{ .Params.image }}" alt="{{ .Title }}">
-      <h2>{{ .Title }}</h2>
-      <p>{{ .Params.description }}</p>
-      <a href="{{ .Params.link }}" target="_blank">View Project</a>
+{{ define "main" }}
+<main class="project-showcase">
+  <div class="project-header">
+    <h1>{{ .Title }}</h1>
+    <div class="project-intro">
+      {{ .Content }}
     </div>
+  </div>
+
+  <!-- Filter and Search Section -->
+  <div class="project-filters">
+    <!-- <div class="filter-group">
+      <label for="tech-filter">Filter by Technology:</label>
+      <select id="tech-filter">
+        <option value="all">All Technologies</option>
+        <option value="java">Java</option>
+        <option value="rust">Rust</option>
+        <option value="python">Python</option>
+        <option value="react">React</option>
+        <option value="javascript">JavaScript</option>
+        <option value="ai">AI/ML</option>
+      </select>
+    </div> -->
+    <!-- <div class="filter-group">
+      <label for="status-filter">Filter by Status:</label>
+      <select id="status-filter">
+        <option value="all">All Status</option>
+        <option value="production">Production</option>
+        <option value="beta">Beta</option>
+        <option value="development">Development</option>
+      </select>
+    </div> -->
+    <div class="search-group">
+      <input type="text" id="project-search" placeholder="Search ..." />
+    </div>
+  </div>
+
+  <!-- Featured Projects Section -->
+  {{ $featured := where .Pages "Params.featured" true }}
+  {{ if $featured }}
+  <section class="featured-projects">
+    <h2><i class="fas fa-star"></i> Featured</h2>
+    <div class="featured-grid">
+      {{ range $featured }}
+      <article class="featured-card" data-tech="{{ delimit .Params.tags "," | lower }}" data-status="{{ .Params.status | lower }}">
+        <div class="card-header">
+          {{ with .Params.thumbnail }}
+            <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy">
+          {{ end }}
+          <!-- <div class="status-badge status-{{ .Params.status | lower }}">{{ .Params.status }}</div> -->
+        </div>
+        <div class="card-content">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p class="project-summary">{{ .Params.summary }}</p>
+          <div class="tech-stack">
+            {{ range first 3 .Params.tech_stack }}
+              <span class="tech-tag">{{ . }}</span>
+            {{ end }}
+            {{ if gt (len .Params.tech_stack) 3 }}
+              <span class="tech-more">+{{ sub (len .Params.tech_stack) 3 }} more</span>
+            {{ end }}
+          </div>
+        </div>
+        <div class="card-actions">
+          <a href="{{ .RelPermalink }}" class="btn-primary">Learn More</a>
+          {{ with .Params.github }}
+            <a href="{{ . }}" target="_blank" class="btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              GitHub
+            </a>
+          {{ end }}
+          {{ with .Params.demo }}
+            <a href="{{ . }}" target="_blank" class="btn-secondary">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+              Live Demo
+            </a>
+          {{ end }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </section>
   {{ end }}
-</section>
+
+  <!-- All Projects Section -->
+  <section class="all-projects">
+    <h2><i class="fas fa-folder"></i> All</h2>
+    <div class="projects-grid">
+      {{ range .Pages }}
+      <article class="project-card" data-tech="{{ delimit .Params.tags "," | lower }}" data-status="{{ .Params.status | lower }}">
+        <div class="card-header">
+          {{ with .Params.thumbnail }}
+            <img src="{{ . | relURL }}" alt="{{ $.Title }}" loading="lazy">
+          {{ end }}
+          <!-- <div class="status-badge status-{{ .Params.status | lower }}">{{ .Params.status }}</div> -->
+        </div>
+        <div class="card-content">
+          <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+          <p class="project-summary">{{ .Params.summary }}</p>
+          <div class="tech-stack">
+            {{ range first 4 .Params.tags }}
+              <span class="tech-tag">{{ . }}</span>
+            {{ end }}
+          </div>
+          <div class="project-meta">
+            <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "Jan 2006" }}</time>
+          </div>
+        </div>
+        <div class="card-actions">
+          <a href="{{ .RelPermalink }}" class="btn-primary">Details</a>
+          {{ with .Params.github }}
+            <a href="{{ . }}" target="_blank" class="btn-icon" title="View on GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+            </a>
+          {{ end }}
+          {{ with .Params.demo }}
+            <a href="{{ . }}" target="_blank" class="btn-icon" title="Live Demo">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M14,3V5H17.59L7.76,14.83L9.17,16.24L19,6.41V10H21V3M19,19H5V5H12V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V12H19V19Z"/>
+              </svg>
+            </a>
+          {{ end }}
+        </div>
+      </article>
+      {{ end }}
+    </div>
+  </section>
+
+  <!-- Project Statistics -->
+  <section class="project-stats">
+    <h2><i class="fas fa-chart-pie"></i> Statistics</h2>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">{{ len .Pages }}</div>
+        <div class="stat-label">Total</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ len $featured }}</div>
+        <div class="stat-label">Featured</div>
+      </div>
+      <!-- <div class="stat-card">
+        <div class="stat-number">{{ len (where .Pages "Params.status" "Production") }}</div>
+        <div class="stat-label">In Production</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">{{ len (where .Pages "Params.github" "!=" nil) }}</div>
+        <div class="stat-label">Open Source</div>
+      </div> -->
+    </div>
+  </section>
+</main>
+
+<script>
+// Project filtering and search functionality
+document.addEventListener('DOMContentLoaded', function() {
+  // const techFilter = document.getElementById('tech-filter');
+  // const statusFilter = document.getElementById('status-filter');
+  const searchInput = document.getElementById('project-search');
+  const projectCards = document.querySelectorAll('.project-card, .featured-card');
+
+  function filterProjects() {
+    // const techValue = techFilter.value.toLowerCase();
+    // const statusValue = statusFilter.value.toLowerCase();
+    const searchValue = searchInput.value.toLowerCase();
+
+    projectCards.forEach(card => {
+      // const techData = card.dataset.tech || '';
+      // const statusData = card.dataset.status || '';
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      const summary = card.querySelector('.project-summary').textContent.toLowerCase();
+
+      // const matchesTech = techValue === 'all' || techData.includes(techValue);
+      // const matchesStatus = statusValue === 'all' || statusData === statusValue;
+      const matchesSearch = searchValue === '' || title.includes(searchValue) || summary.includes(searchValue);
+
+      // if (matchesTech && matchesStatus && matchesSearch) {
+      if (matchesSearch) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  }
+
+  // techFilter.addEventListener('change', filterProjects);
+  // statusFilter.addEventListener('change', filterProjects);
+  searchInput.addEventListener('input', filterProjects);
+});
+</script>
+{{ end }}
