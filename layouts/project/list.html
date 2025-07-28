@@ -1,0 +1,11 @@
+<section class="project-list">
+  <h1>{{ .Title }}</h1>
+  {{ range .Pages }}
+    <div class="project-card">
+      <img src="{{ .Params.image }}" alt="{{ .Title }}">
+      <h2>{{ .Title }}</h2>
+      <p>{{ .Params.description }}</p>
+      <a href="{{ .Params.link }}" target="_blank">View Project</a>
+    </div>
+  {{ end }}
+</section>
