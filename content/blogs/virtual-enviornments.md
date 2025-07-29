@@ -1,0 +1,139 @@
+---
+title: "Setting Up Development Environments with nvm, pyenv with virtualenv, jenv, and Rust on Ubuntu"
+date: 2023-08-13T22:54:54+05:30
+draft: false
+tags: [ "setup guide", "Linux" ]
+---
+Developers often work on projects that require specific programming languages and versions. Managing these different environments can be challenging, but with the right tools, you can streamline the process and improve your workflow. In this blog post, we'll walk you through setting up four important version management tools: nvm, pyenv with virtualenv, jenv, and Rust on an Ubuntu system.
+
+## Table of Contents
+
+1. Introduction
+2. Installing nvm (Node Version Manager)
+3. Setting Up pyenv with virtualenv (Python Version Manager)
+4. Configuring jenv (Java Environment Manager)
+5. Managing Rust Versions with Rustup
+6. Conclusion
+
+## Introduction
+
+Setting up a development environment involves managing different versions of programming languages to ensure compatibility with various projects. The tools we'll cover in this guide provide an organized approach to this process, making it easier to switch between different language versions.
+
+## 1. Installing nvm (Node Version Manager)
+
+nvm is a popular tool for managing Node.js versions. It allows you to easily switch between different Node.js versions and manage global and project-specific npm packages. Here's how to install nvm on Ubuntu:
+
+1. Open a terminal and run the following command to install nvm:
+
+   ```bash
+   curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+   ```
+
+2. Reload your terminal or run:
+
+   ```bash
+   source ~/.bashrc
+   ```
+
+3. Install a Node.js version using nvm:
+
+   ```bash
+   nvm install 14.17.4
+   ```
+
+4. Use a specific Node.js version:
+
+   ```bash
+   nvm use 14.17.4
+   ```
+
+## 2. Setting Up pyenv with virtualenv (Python Version Manager)
+
+pyenv with virtualenv allows you to manage different Python versions and create isolated virtual environments. This is crucial for maintaining separate environments for various projects. Here's how to set up pyenv and use virtualenv on Ubuntu:
+
+1. Install pyenv:
+
+   ```bash
+   git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+   echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.bashrc
+   echo 'export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.bashrc
+   source ~/.bashrc
+   ```
+
+2. Install pyenv-virtualenv plugin:
+
+   ```bash
+   git clone https://github.com/pyenv/pyenv-virtualenv.git $(pyenv root)/plugins/pyenv-virtualenv
+   ```
+
+3. Create and activate a virtual environment:
+
+   ```bash
+   pyenv install 3.8.12
+   pyenv virtualenv 3.8.12 myenv
+   pyenv activate myenv
+   ```
+
+4. Deactivate the virtual environment:
+
+   ```bash
+   pyenv deactivate
+   ```
+
+5. Delete a virtual environment:
+
+   ```bash
+   pyenv uninstall myenv
+   ```
+
+## 3. Configuring jenv (Java Environment Manager)
+
+jenv is a tool that helps manage different Java versions on your system. It's especially useful for projects that require specific Java versions. Here's how to set up jenv on Ubuntu:
+
+1. Install jenv:
+
+   ```bash
+   git clone https://github.com/jenv/jenv.git ~/.jenv
+   echo 'export PATH="$HOME/.jenv/bin:$PATH"' >> ~/.bashrc
+   echo 'eval "$(jenv init -)"' >> ~/.bashrc
+   source ~/.bashrc
+   ```
+
+2. Install a Java version:
+
+   ```bash
+   jenv add /path/to/java/version
+   ```
+
+3. Switch between Java versions:
+
+   ```bash
+   jenv global 11.0.12
+   ```
+
+## 4. Managing Rust Versions with Rustup
+
+Rustup is the official toolchain manager for Rust, allowing you to manage multiple Rust versions. Here's how to set up Rustup on Ubuntu:
+
+1. Install Rustup:
+
+   ```bash
+   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+   source $HOME/.cargo/env
+   ```
+
+2. Install a Rust version:
+
+   ```bash
+   rustup install 1.55.0
+   ```
+
+3. Switch to a Rust version:
+
+   ```bash
+   rustup default 1.55.0
+   ```
+
+## Conclusion
+
+Managing multiple programming language versions is essential for seamless development. Tools like nvm, pyenv with virtualenv, jenv, and Rustup provide the ability to switch between different versions easily. By following the steps outlined in this guide and using the provided examples, you can create a flexible and efficient development environment on your Ubuntu system. This will enable you to work on various projects without worrying about compatibility issues or version conflicts.
