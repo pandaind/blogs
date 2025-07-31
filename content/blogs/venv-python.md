@@ -1,0 +1,119 @@
+---
+title: "Setting up a Python virtual environment in Linux a step-by-step guide"
+date: 2023-07-10T22:10:57+05:30
+draft: false
+tags: [ "Python", "Linux", "setup guide" ]
+---
+Setting up a Python virtual environment in Linux involves a few steps. Here's a step-by-step guide:
+
+1. Open a terminal: Launch the terminal application on your Linux distribution.
+
+2. Install Python: Most Linux distributions come with Python pre-installed. However, if it's not installed or you want a specific version, you can install it using your distribution's package manager. For example, on Ubuntu or Debian-based systems, you can use the following command to install Python 3:
+
+   ```
+   sudo apt-get update
+   sudo apt-get install python3
+   ```
+
+3. Install pip: pip is a package installer for Python. To install pip, use the following command:
+
+   ```
+   sudo apt-get install python3-pip
+   ```
+
+4. Install virtualenv: virtualenv is a tool to create isolated Python environments. Use the following command to install it:
+
+   ```
+   sudo apt-get install virtualenv
+   ```
+
+5. Create a virtual environment: Choose a directory where you want to create the virtual environment, navigate to that directory using the terminal, and run the following command to create a new virtual environment:
+
+   ```
+   virtualenv myenv
+   ```
+
+   Replace `myenv` with the name you prefer for your virtual environment.
+
+6. Activate the virtual environment: To start using the virtual environment, you need to activate it. Run the following command:
+
+   ```
+   source myenv/bin/activate
+   ```
+
+   After activation, your terminal prompt should change to indicate that you're now working inside the virtual environment.
+
+7. Install packages: Now you can install Python packages within the virtual environment using pip, just like you would outside the environment. For example:
+
+   ```
+   pip install package_name
+   ```
+
+   Replace `package_name` with the name of the package you want to install.
+
+8. Deactivate the virtual environment: When you're done working in the virtual environment, you can deactivate it using the following command:
+
+   ```
+   deactivate
+   ```
+
+   After deactivating, you will return to your normal system environment.
+
+   If you prefer to use `python3-venv` instead of `virtualenv`, you can follow these steps to set up a Python 3 virtual environment in Linux:
+
+10. Open a terminal: Launch the terminal application on your Linux distribution.
+
+11. Install Python 3 and venv: Use your distribution's package manager to install Python 3 and the `python3-venv` package. For example, on Ubuntu or Debian-based systems, you can use the following command:
+
+    ```
+    sudo apt-get update
+    sudo apt-get install python3 python3-venv
+    ```
+
+12. Create a virtual environment: Choose a directory where you want to create the virtual environment, navigate to that directory using the terminal, and run the following command to create a new virtual environment:
+
+    ```
+    python3 -m venv myenv
+    ```
+
+    Replace `myenv` with the name you prefer for your virtual environment.
+
+13. Activate the virtual environment: To start using the virtual environment, run the activation command specific to your shell. For example:
+
+    - For bash, sh, or zsh:
+
+      ```
+      source myenv/bin/activate
+      ```
+
+    - For fish:
+
+      ```
+      source myenv/bin/activate.fish
+      ```
+
+    - For csh or tcsh:
+
+      ```
+      source myenv/bin/activate.csh
+      ```
+
+    After activation, your terminal prompt should change to indicate that you're now working inside the virtual environment.
+
+14. Install packages: Now you can install Python packages within the virtual environment using pip, just like you would outside the environment. For example:
+
+    ```
+    pip install package_name
+    ```
+
+    Replace `package_name` with the name of the package you want to install.
+
+15. Deactivate the virtual environment: When you're done working in the virtual environment, you can deactivate it using the following command:
+
+    ```
+    deactivate
+    ```
+
+    After deactivating, you will return to your normal system environment.
+
+That's it! You've successfully set up and used a Python 3 virtual environment using `python3-venv` in Linux.
