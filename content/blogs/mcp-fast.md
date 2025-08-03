@@ -61,7 +61,7 @@ http://localhost:4200/todo-mcp/http
 
 ###  Step 3: Add to CoPilot
 
-In your `continue.config.json`:
+In your `mcp.json`:
 
 ```json
 {
