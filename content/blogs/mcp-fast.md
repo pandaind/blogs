@@ -78,7 +78,8 @@ In your `mcp.json`:
 ###  Step 4: Sample Conversations
 
 **You:** `list all the tasks`
- **CoPilot:**
+
+**CoPilot:**
 
 ```
 Here is the list of all tasks:
@@ -94,14 +95,16 @@ Here is the list of all tasks:
 ```
 
 **You:** `add a new task to buy laptop next monday`
- **CoPilot:**
+
+**CoPilot:**
 
 ```
 Task "Buy laptop" added with due date August 11, 2025.
 ```
 
 **You:** `list again`
- **CoPilot:**
+
+**CoPilot:**
 
 ```
 Here is the list of all tasks:
