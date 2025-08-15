@@ -12,6 +12,16 @@ buildExpired: false
 minify:
   disableXML: true
   minifyOutput: true
+  disableJS: false
+  disableCSS: false
+  disableHTML: false
+  disableJSON: false
+  disableSVG: false
+  tdewolff:
+    js:
+      keepVarNames: false
+      precision: 0
+      removeConsole: true  # Remove console.log statements in production
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.

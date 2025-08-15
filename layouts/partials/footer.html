@@ -133,5 +133,13 @@
 {{- end }}
 
 <!-- Popup Chat Scripts -->
-<script src="{{ "js/main.js" | absURL }}"></script>
-<script src="{{ "js/chat.js" | absURL }}"></script>
+{{- $mainJS := resources.Get "js/main.js" }}
+{{- $chatJS := resources.Get "js/chat.js" }}
+{{- $bundledJS := slice $mainJS $chatJS | resources.Concat "js/chat-bundle.js" }}
+
+{{- if hugo.IsProduction }}
+  {{- $bundledJS = $bundledJS | minify | fingerprint }}
+  <script src="{{ $bundledJS.Permalink }}" integrity="{{ $bundledJS.Data.Integrity }}"></script>
+{{- else }}
+  <script src="{{ $bundledJS.Permalink }}"></script>
+{{- end }}
