@@ -1,0 +1,114 @@
+{{- if site.Params.popupChat.enabled }}
+<!-- Chat Configuration -->
+<meta name="chat-auto-popup" content="{{ site.Params.popupChat.autoPopup | default true }}">
+<meta name="chat-auto-popup-delay" content="{{ site.Params.popupChat.autoPopupDelay | default 3000 }}">
+
+<!-- Popup chat window -->
+<div class="chat-bar-open" id="chat-open">
+  <button
+    id="chat-open-button"
+    type="button"
+    class="collapsible close"
+    onclick="chatOpen()"
+    title="Chat with us"
+  >
+    <i class="fas fa-comments"></i>
+  </button>
+</div>
+
+<!-- chat close -->
+<div class="chat-bar-close" id="chat-close">
+  <button
+    id="chat-close-button"
+    type="button"
+    class="collapsible close"
+    onclick="chatClose()"
+    title="Close chat"
+  >
+    <i class="fas fa-times"></i>
+  </button>
+</div>
+
+<!-- chat-window 1 -->
+<div class="chat-window" id="chat-window1">
+  <div class="hi-there">
+    <p class="p1">{{ site.Params.popupChat.title | default "Hi There" }}</p>
+    <br />
+    <p class="p2">{{ site.Params.popupChat.subtitle | default "Hello! Ask Us Anything, Share Your Feedback." | safeHTML }}</p>
+  </div>
+  
+  <div class="start-conversation">
+    <h1>Start a Conversation</h1>
+    <p>{{ site.Params.popupChat.teamResponse | default "The team typically replies in few minutes." }}</p>
+    
+    <div class="contact-form">
+      <div class="form-group">
+        <label for="userName">Name *</label>
+        <input type="text" id="userName" placeholder="Enter your name" required>
+      </div>
+      <div class="form-group">
+        <label for="userContact">Email or Phone *</label>
+        <input type="text" id="userContact" placeholder="Enter your email or phone number" required>
+      </div>
+    </div>
+    
+    <button
+      class="new-conversation"
+      type="button"
+      onclick="validateAndStartConversation()"
+    >
+      <span>Start Conversation</span>
+      <i class="fas fa-paper-plane"></i>
+    </button>
+  </div>
+</div>
+
+<!-- chat chat-window 2 -->
+<div class="chat-window2" id="chat-window2">
+  <div class="message-box" id="messageBox">
+    <div class="hi-there">
+      <p class="p1">{{ site.Params.popupChat.title | default "Hi There" }} <span id="chatUserName"></span>!</p>
+      <br />
+      <p class="p2">{{ site.Params.popupChat.teamResponse | default "The team typically replies in few minutes." }}</p>
+    </div>
+    <div class="user-info" id="userInfoDisplay" style="display: none;">
+      <div class="second-chat">
+        <div class="circle"></div>
+        <p id="contactInfoMessage">Thank you for providing your contact information. How can we help you today?</p>
+        <div class="arrow"></div>
+      </div>
+    </div>
+  </div>
+  <div class="input-box">
+    <div class="chat-controls">
+      <button type="button" class="end-conversation-btn" onclick="endConversation()" title="End conversation">
+        <i class="fas fa-stop"></i>
+        <span>End Chat</span>
+      </button>
+    </div>
+    <div class="pandac-branding">
+      <i class="fas fa-robot"></i>
+      <span>powered by PandaC</span>
+    </div>
+    <div class="write-reply">
+      <input
+        class="inputText"
+        type="text"
+        id="textInput"
+        placeholder="Type your message..."
+      />
+    </div>
+    <div class="send-button">
+      <button
+        type="submit"
+        class="send-message"
+        id="send"
+        onclick="userResponse()"
+        title="Send message"
+      >
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+</div>
+{{- end }}

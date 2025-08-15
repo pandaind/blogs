@@ -16,6 +16,9 @@
 </a>
 {{- end }}
 
+<!-- Popup Chat Widget -->
+{{- partial "popup-chat.html" . }}
+
 {{- partial "extend_footer.html" . }}
 
 <script>
@@ -128,3 +131,7 @@
     });
 </script>
 {{- end }}
+
+<!-- Popup Chat Scripts -->
+<script src="{{ "js/main.js" | absURL }}"></script>
+<script src="{{ "js/chat.js" | absURL }}"></script>

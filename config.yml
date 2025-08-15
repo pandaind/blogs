@@ -27,6 +27,15 @@ params:
   # Section configuration
   mainSections: ["blogs"]  # Only blogs appear on home page
   
+  # Popup Chat Configuration
+  popupChat:
+    enabled: true
+    autoPopup: true
+    autoPopupDelay: 3000  # milliseconds
+    title: "Hello, How are you today?"
+    subtitle: "Please share your details below"
+    teamResponse: "Expect delay in response"
+
   ShowReadingTime: true
   ShowShareButtons: true
   ShowPostNavLinks: true
