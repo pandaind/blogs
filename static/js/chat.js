@@ -617,106 +617,106 @@ function generateContextualResponse(userMessage) {
   // Greeting responses
   if (message.includes('hello') || message.includes('hi') || message.includes('hey') || message.includes('good morning') || message.includes('good afternoon')) {
     const greetings = [
-      `Hello ${name}! Welcome to PandaC. I'm here to help you with any questions you might have.`,
+      `Hello ${name}! Welcome to my personal blog and portfolio. I'm here to help answer any questions you might have.`,
       `Hi there ${name}! Great to connect with you. How can I assist you today?`,
-      `Hey ${name}! Thanks for reaching out. What brings you to our site today?`,
-      `Good to meet you, ${name}! I'm here to help. What would you like to know about our services?`
+      `Hey ${name}! Thanks for visiting my site. What brings you here today?`,
+      `Good to meet you, ${name}! I'm here to help. What would you like to know about my work or services?`
     ];
     return greetings[Math.floor(Math.random() * greetings.length)];
   }
   
   // About PandaC / Company inquiries
   if (message.includes('about') || message.includes('company') || message.includes('pandac') || message.includes('who are you')) {
-    return `${name}, PandaC is a technology company focused on innovative solutions. I specialize in software development, digital transformation, and cutting-edge tech services. Our team will contact you via your ${contactType} with more detailed information about our company and offerings.`;
+    return `Hi ${name}! I'm a passionate developer and tech enthusiast behind PandaC. This is my personal blog and showcase site where I share my projects, insights, and expertise. I'll get back to you via your ${contactType} with more details about my background and experience.`;
   }
   
   // Service inquiries
   if (message.includes('service') || message.includes('what do you do') || message.includes('offerings') || message.includes('solutions')) {
-    return `Hi ${name}! I offer a wide range of services including software development, web applications, mobile apps, cloud solutions, and digital consulting. I've noted your interest and our team will reach out via your ${contactType} to discuss how I can help your specific needs.`;
+    return `Hi ${name}! I offer freelance development services including web applications, mobile apps, backend development, and technical consulting. As an individual developer, I provide personalized attention to each project. I'll reach out via your ${contactType} to discuss how I can help with your specific needs.`;
   }
   
   // Technical questions
   if (message.includes('technical') || message.includes('technology') || message.includes('development') || message.includes('programming') || message.includes('coding')) {
-    return `Great technical question, ${name}! I work with cutting-edge technologies including modern web frameworks, cloud platforms, AI/ML, and mobile development. Our technical team will provide you with detailed insights via your ${contactType}.`;
+    return `Great technical question, ${name}! I work with cutting-edge technologies including modern web frameworks, cloud platforms, AI/ML, and mobile development. You can check out my blog posts and projects on this site to see my technical expertise in action. I'll provide you with detailed insights via your ${contactType}.`;
   }
   
   // Pricing inquiries
   if (message.includes('price') || message.includes('cost') || message.includes('rate') || message.includes('budget') || message.includes('quote')) {
-    return `${name}, pricing depends on your specific requirements and project scope. I offer competitive rates and flexible pricing models. Our sales team will contact you via your ${contactType} with a customized quote tailored to your needs.`;
+    return `${name}, my rates depend on the project scope and complexity. As a freelance developer, I offer competitive pricing and flexible arrangements. I'll contact you via your ${contactType} with a personalized quote based on your requirements.`;
   }
   
   // Support/Help requests
   if (message.includes('help') || message.includes('support') || message.includes('problem') || message.includes('issue') || message.includes('assistance')) {
-    return `I'm here to help, ${name}! Whether it's technical support, project guidance, or general inquiries, our team is ready to assist. We'll reach out to you via your ${contactType} to provide the support you need.`;
+    return `I'm here to help, ${name}! Whether it's technical guidance, project consultation, or general inquiries about my work, I'm ready to assist. I'll reach out to you via your ${contactType} to provide the support you need.`;
   }
   
   // Contact/Meeting requests
   if (message.includes('contact') || message.includes('call') || message.includes('meeting') || message.includes('discuss') || message.includes('talk')) {
-    return `Absolutely, ${name}! I'd be happy to arrange that. I have your ${contactType} and our team will get in touch with you shortly to schedule a convenient time to discuss your requirements in detail.`;
+    return `Absolutely, ${name}! I'd be happy to connect with you. I have your ${contactType} and will get in touch with you shortly to schedule a convenient time to discuss your needs or interests.`;
   }
   
   // Project inquiries
   if (message.includes('project') || message.includes('work') || message.includes('collaboration') || message.includes('partnership')) {
-    return `That sounds interesting, ${name}! I love working on exciting projects. Our project managers will contact you via your ${contactType} to learn more about your project requirements and how I can collaborate.`;
+    return `That sounds interesting, ${name}! I love working on exciting projects and collaborating with like-minded individuals. I'll contact you via your ${contactType} to learn more about your project requirements and how we can work together.`;
   }
   
   // Timeline/Delivery questions
   if (message.includes('time') || message.includes('when') || message.includes('deadline') || message.includes('delivery') || message.includes('schedule')) {
-    return `Good question, ${name}! Project timelines vary based on scope and complexity. I pride ourselves on timely delivery and will provide you with realistic timelines. Our team will discuss specific timeframes with you via your ${contactType}.`;
+    return `Good question, ${name}! Project timelines vary based on scope and complexity. As a solo developer, I pride myself on clear communication and realistic timelines. I'll discuss specific timeframes and my current availability with you via your ${contactType}.`;
   }
   
   // Portfolio/Experience questions
   if (message.includes('portfolio') || message.includes('experience') || message.includes('past work') || message.includes('examples') || message.includes('case studies')) {
-    return `${name}, I have extensive experience across various industries and technologies. I'd love to share our portfolio and case studies with you. Our team will send you relevant examples via your ${contactType}.`;
+    return `${name}, you can explore my portfolio and projects right here on this site! I've documented my work, technical articles, and case studies in my blog. I'd also love to share specific examples relevant to your interests via your ${contactType}.`;
   }
   
   // Thank you responses
   if (message.includes('thank') || message.includes('thanks') || message.includes('appreciate')) {
-    return `You're very welcome, ${name}! It's our pleasure to help. If you have any more questions, feel free to ask. We'll also follow up with you via your ${contactType}.`;
+    return `You're very welcome, ${name}! It's my pleasure to help. Feel free to browse my blog posts and projects while you're here. I'll also follow up with you via your ${contactType} if you have any more questions.`;
   }
   
   // Complaint or concern
   if (message.includes('complaint') || message.includes('concern') || message.includes('worried') || message.includes('disappointed')) {
-    return `I understand your concern, ${name}, and I apologize for any inconvenience. Your feedback is important to us. Our customer service team will prioritize your case and contact you via your ${contactType} to resolve this matter promptly.`;
+    return `I understand your concern, ${name}, and I apologize for any inconvenience. Your feedback is important to me as I strive to provide the best service possible. I'll prioritize addressing this matter and contact you via your ${contactType} to resolve it promptly.`;
   }
   
   // Location/Office questions
   if (message.includes('location') || message.includes('office') || message.includes('where') || message.includes('address')) {
-    return `${name}, I operate with a distributed team model, allowing us to serve clients globally while maintaining competitive costs. Our team will share more details about our operations and how I can best serve you via your ${contactType}.`;
+    return `${name}, I work remotely which allows me to serve clients globally while keeping costs competitive. This also means I can be flexible with timing and communication methods. I'll share more details about how I work and collaborate via your ${contactType}.`;
   }
   
   // Technology stack questions
   if (message.includes('react') || message.includes('node') || message.includes('python') || message.includes('java') || message.includes('aws') || message.includes('cloud')) {
-    return `Great question about our tech stack, ${name}! I work with modern technologies including React, Node.js, Python, Java, AWS, and many other cutting-edge tools. Our technical team will provide detailed information about our capabilities via your ${contactType}.`;
+    return `Great question about my tech stack, ${name}! I work with modern technologies including React, Node.js, Python, AWS, and many other cutting-edge tools. You can see examples of my work with these technologies in my blog posts. I'll provide detailed information about my capabilities via your ${contactType}.`;
   }
   
   // Emergency or urgent requests
   if (message.includes('urgent') || message.includes('emergency') || message.includes('asap') || message.includes('immediately')) {
-    return `I understand this is urgent, ${name}! We'll prioritize your request. Our team will contact you via your ${contactType} within the next few hours to address your urgent needs.`;
+    return `I understand this is urgent, ${name}! As a solo developer, I'll prioritize your request. I'll contact you via your ${contactType} as soon as possible to address your urgent needs.`;
   }
   
   // General responses based on message characteristics
   if (message.length > 100) {
-    return `Thank you for the detailed message, ${name}! I can see you've put thought into your inquiry. Our team will review your message carefully and provide a comprehensive response via your ${contactType}.`;
+    return `Thank you for the detailed message, ${name}! I can see you've put thought into your inquiry. I'll review your message carefully and provide a comprehensive response via your ${contactType}.`;
   }
   
   if (message.includes('?')) {
-    return `That's a great question, ${name}! Our experts will provide you with a detailed answer. Expect to hear from us via your ${contactType} soon.`;
+    return `That's a great question, ${name}! I'll provide you with a detailed answer. Expect to hear from me via your ${contactType} soon.`;
   }
   
   // Sentiment-based responses
   if (message.includes('excited') || message.includes('interested') || message.includes('looking forward')) {
-    return `That's wonderful to hear, ${name}! We're equally excited to work with you. Our team will contact you via your ${contactType} to discuss the next steps.`;
+    return `That's wonderful to hear, ${name}! I'm equally excited to connect with you. I'll contact you via your ${contactType} to discuss the next steps.`;
   }
   
-  // Default contextual responses (more varied and engaging)
+  // Default contextual responses (more varied and personal)
   const defaultResponses = [
-    `Thanks for reaching out, ${name}! I've received your message and our team will get back to you via your ${contactType} with a detailed response.`,
-    `Hi ${name}! Your message is important to us. We'll have someone from our team contact you via your ${contactType} to help you further.`,
-    `Hello ${name}! I appreciate you taking the time to connect with us. Our team will follow up with you using your ${contactType} to discuss how I can assist.`,
-    `${name}, thank you for your interest in PandaC! We'll reach out to you via your ${contactType} to provide more information and answer any questions.`,
-    `Great to hear from you, ${name}! Our team is reviewing your message and will contact you via your ${contactType} to provide the assistance you need.`,
-    `${name}, I value your inquiry! Our specialists will get in touch with you via your ${contactType} to discuss your requirements in detail.`
+    `Thanks for reaching out, ${name}! I've received your message and will get back to you via your ${contactType} with a detailed response.`,
+    `Hi ${name}! Your message is important to me. I'll contact you via your ${contactType} to help you further.`,
+    `Hello ${name}! I appreciate you taking the time to visit my site and connect with me. I'll follow up with you using your ${contactType} to discuss how I can assist.`,
+    `${name}, thank you for your interest in my work! I'll reach out to you via your ${contactType} to provide more information and answer any questions.`,
+    `Great to hear from you, ${name}! I'm reviewing your message and will contact you via your ${contactType} to provide the assistance you need.`,
+    `${name}, I value your inquiry! I'll get in touch with you via your ${contactType} to discuss your requirements in detail.`
   ];
   
   return defaultResponses[Math.floor(Math.random() * defaultResponses.length)];
