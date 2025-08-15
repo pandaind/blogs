@@ -1,0 +1,214 @@
+---
+title: "Set up Nginx and Apache2 on RHEL (Red Hat Enterprise Linux) with Self-Signed SSL/TLS Certificates"
+date: 2023-07-20T13:17:13+05:30
+draft: false
+tags: [ "SSL/TLS certificates", "setup guide" ]
+---
+
+### Below is the Bash script to download and set up Nginx server with SSL using a self-signed certificate and user-provided details on RHEL (Red Hat Enterprise Linux):
+
+```bash
+#!/bin/bash
+
+# Check if the script is running with root privileges
+if [ "$EUID" -ne 0 ]; then
+    echo "Please run this script as root or with sudo."
+    exit 1
+fi
+
+# Check if a domain name is provided as an argument
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <domain_name>"
+    exit 1
+fi
+
+# Assign the provided domain name to a variable
+domain_name="$1"
+
+# Prompt the user for SSL certificate details
+read -p "Enter the Country Code (e.g., US): " country_code
+read -p "Enter the State or Province (e.g., California): " state
+read -p "Enter the Locality or City (e.g., San Francisco): " city
+read -p "Enter the Organization Name (e.g., My Company): " organization
+
+# Update package lists
+yum update -y
+
+# Install Nginx
+yum install -y epel-release
+yum install -y nginx
+
+# Start Nginx service
+systemctl start nginx
+
+# Enable Nginx to start on boot
+systemctl enable nginx
+
+# Check if Nginx is running
+if systemctl is-active --quiet nginx; then
+    echo "Nginx has been installed and is running."
+else
+    echo "Failed to start Nginx. Check for any errors during installation."
+    exit 1
+fi
+
+# Generate self-signed SSL certificate with user-provided details
+mkdir -p /etc/nginx/ssl
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/ssl/nginx.key -out /etc/nginx/ssl/nginx.crt -subj "/C=${country_code}/ST=${state}/L=${city}/O=${organization}/CN=${domain_name}"
+
+# Configure Nginx to use SSL
+cat > /etc/nginx/conf.d/default.conf << EOF
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name ${domain_name};
+
+    return 301 https://\$host\$request_uri;
+}
+
+server {
+    listen 443 ssl;
+    listen [::]:443 ssl;
+
+    server_name ${domain_name};
+
+    ssl_certificate /etc/nginx/ssl/nginx.crt;
+    ssl_certificate_key /etc/nginx/ssl/nginx.key;
+
+    location / {
+        root /usr/share/nginx/html; # Change this to the root directory of your website
+        index index.html index.htm;
+    }
+}
+EOF
+
+# Test Nginx configuration for syntax errors
+nginx -t
+
+# Reload Nginx to apply the changes
+systemctl reload nginx
+
+# Display the server IP address and open the default Nginx page in the browser
+server_ip=$(curl -s http://checkip.amazonaws.com)
+echo "Nginx with SSL is serving at https://${domain_name}/"
+
+# Optionally, you can open the default Nginx page in the default web browser
+# Uncomment the following line if you want to open the page automatically
+# xdg-open "https://${domain_name}/"
+```
+
+Save the script to a file, for example, `nginx_ssl_setup_rhel.sh`. Make sure to give it executable permissions using the following command:
+
+```bash
+chmod +x nginx_ssl_setup_rhel.sh
+```
+
+Then, run the script with root privileges and provide the domain name as an argument:
+
+```bash
+sudo ./nginx_ssl_setup_rhel.sh example.com
+```
+
+Replace `example.com` with your actual domain name. The script will prompt the user for SSL certificate details, update the package lists, install Nginx, start the Nginx service, generate a self-signed SSL certificate with the provided domain name and user-provided details, configure Nginx to use SSL for the specified domain, and display the server IP address along with the default Nginx page's URL (with SSL). Optionally, you can uncomment the `xdg-open` line to automatically open the default Nginx page in the default web browser after installation. Remember that this self-signed certificate is not recommended for production use; use a valid SSL certificate from a trusted certificate authority for production deployments.
+
+### Below is the Bash script to download and set up Apache server with SSL using a self-signed certificate and user-provided details on RHEL (Red Hat Enterprise Linux):
+
+```bash
+#!/bin/bash
+
+# Check if the script is running with root privileges
+if [ "$EUID" -ne 0 ]; then
+    echo "Please run this script as root or with sudo."
+    exit 1
+fi
+
+# Check if a domain name is provided as an argument
+if [ $# -ne 1 ]; then
+    echo "Usage: $0 <domain_name>"
+    exit 1
+fi
+
+# Assign the provided domain name to a variable
+domain_name="$1"
+
+# Prompt the user for SSL certificate details
+read -p "Enter the Country Code (e.g., US): " country_code
+read -p "Enter the State or Province (e.g., California): " state
+read -p "Enter the Locality or City (e.g., San Francisco): " city
+read -p "Enter the Organization Name (e.g., My Company): " organization
+
+# Update package lists
+yum update -y
+
+# Install Apache
+yum install -y httpd mod_ssl
+
+# Start Apache service
+systemctl start httpd
+
+# Enable Apache to start on boot
+systemctl enable httpd
+
+# Check if Apache is running
+if systemctl is-active --quiet httpd; then
+    echo "Apache has been installed and is running."
+else
+    echo "Failed to start Apache. Check for any errors during installation."
+    exit 1
+fi
+
+# Generate self-signed SSL certificate with user-provided details
+mkdir -p /etc/httpd/ssl
+openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/httpd/ssl/apache.key -out /etc/httpd/ssl/apache.crt -subj "/C=${country_code}/ST=${state}/L=${city}/O=${organization}/CN=${domain_name}"
+
+# Configure Apache to use SSL
+cat > /etc/httpd/conf.d/ssl.conf << EOF
+<VirtualHost *:80>
+    ServerName ${domain_name}
+    Redirect permanent / https://${domain_name}/
+</VirtualHost>
+
+<VirtualHost _default_:443>
+    ServerName ${domain_name}
+    DocumentRoot /var/www/html
+
+    SSLEngine on
+    SSLCertificateFile /etc/httpd/ssl/apache.crt
+    SSLCertificateKeyFile /etc/httpd/ssl/apache.key
+
+    <Directory /var/www/html>
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+EOF
+
+# Test Apache configuration for syntax errors
+httpd -t
+
+# Reload Apache to apply the changes
+systemctl reload httpd
+
+# Display the server IP address and open the default Apache page in the browser
+server_ip=$(curl -s http://checkip.amazonaws.com)
+echo "Apache with SSL is serving at https://${domain_name}/"
+
+# Optionally, you can open the default Apache page in the default web browser
+# Uncomment the following line if you want to open the page automatically
+# xdg-open "https://${domain_name}/"
+```
+
+Save the script to a file, for example, `apache_ssl_setup_rhel.sh`. Make sure to give it executable permissions using the following command:
+
+```bash
+chmod +x apache_ssl_setup_rhel.sh
+```
+
+Then, run the script with root privileges and provide the domain name as an argument:
+
+```bash
+sudo ./apache_ssl_setup_rhel.sh example.com
+```
+
+Replace `example.com` with your actual domain name. The script will prompt the user for SSL certificate details, update the package lists, install Apache, start the Apache service, generate a self-signed SSL certificate with the provided domain name and user-provided details, configure Apache to use SSL for the specified domain, and display the server IP address along with the default Apache page's URL (with SSL). Optionally, you can uncomment the `xdg-open` line to automatically open the default Apache page in the default web browser after installation. Remember that this self-signed certificate is not recommended for production use; use a valid SSL certificate from a trusted certificate authority for production deployments.
