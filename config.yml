@@ -31,7 +31,7 @@ params:
   # author: ["Me", "You"] # multiple authors
   images: ["<link or path of image for opengraph, twitter-cards>"]
   DateFormat: "January 2, 2006"
-  defaultTheme: light # dark, light, auto
+  defaultTheme: auto # dark, light, auto
   disableThemeToggle: false
 
   # Section configuration
@@ -40,7 +40,7 @@ params:
   # Popup Chat Configuration
   popupChat:
     enabled: true
-    autoPopup: true
+    autoPopup: false
     autoPopupDelay: 3000  # milliseconds
     title: "Hello, How are you today?"
     subtitle: "Please share your details below"
@@ -115,8 +115,9 @@ params:
 
   cover:
     hidden: true # hide everywhere but not in structured data
-    hiddenInList: true # hide on list pages and home
-    hiddenInSingle: true # hide on single page
+    hiddenInList: false # hide on list pages and home
+    hiddenInSingle: false # hide on single page
+    responsiveImages: true
 
   # https://fusejs.io/api/options.html
   fuseOpts:

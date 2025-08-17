@@ -3,6 +3,9 @@ title: "LoRA Fine-Tuning is Just Like Baking a Cake 🍰"
 date: 2025-08-17T12:51:36+05:30
 draft: false
 tags: [ "AI", "Training AI" ]
+cover:
+  image: /content-img/lora2.png
+  relative: true
 ---
 
 Once upon a time, there was a baker who baked the **perfect giant cake**.
@@ -18,8 +21,6 @@ That’s when the idea struck:
  👉 *Don’t bake a new cake. Just add a **topping**.*
 
 And that, in the world of AI, is exactly what **LoRA (Low-Rank Adaptation)** does.
-
-------
 
 ![lora](/content-img/lora.png)
 
