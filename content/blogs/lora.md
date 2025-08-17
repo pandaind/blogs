@@ -1,5 +1,5 @@
 ---
-title: "Fine-Tune with LoRA Explained with Cake 🍰"
+title: "LoRA Fine-Tuning is Just Like Baking a Cake 🍰"
 date: 2025-08-17T12:51:36+05:30
 draft: false
 tags: [ "AI", "Training AI" ]
