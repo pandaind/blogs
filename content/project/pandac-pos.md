@@ -1,31 +1,29 @@
 ---
 title: "POS API"
 date: 2024-10-15
-summary: "A complete Point of Sale system API built with FastAPI and PostgreSQL—ready to deploy in minutes."
-description: "A production-ready POS system API featuring authentication, inventory management, sales tracking, customer management, and comprehensive reporting. Built with FastAPI, PostgreSQL, and Docker for easy deployment."
+summary: "Learning project: Point of Sale API with FastAPI, PostgreSQL, and Docker."
+description: "Educational POS system API demonstrating authentication, inventory management, sales tracking, and testing. FastAPI, PostgreSQL, SQLAlchemy, and Alembic."
 tags: ["FastAPI", "Python", "PostgreSQL", "REST API", "Docker"]
 thumbnail: "/img/pandac-pos.png"
 github: "https://github.com/pandaind/pandac-pos"
 tech_stack: ["Python", "FastAPI", "PostgreSQL", "Docker", "SQLAlchemy", "Alembic"]
-status: "Stable"
-featured: true
+status: "Learning"
+featured: false
 weight: 2
 ---
 
 ## 🧭 Overview
 
-Building a complete Point of Sale system from scratch is complex—you need authentication, inventory tracking, sales management, customer relationships, reporting analytics, and more. All while ensuring data consistency and security.
+A Point of Sale system API demonstrating authentication, inventory tracking, sales management, customer relationships, and reporting analytics.
 
-**Pandac POS API** delivers all of this out of the box. With just **Docker Compose**, you get a **production-ready POS system** complete with **JWT authentication**, **comprehensive test coverage**, and **automatic database migrations**.
+**Pandac POS API** is an educational project built with **FastAPI** and **PostgreSQL**. The codebase includes **JWT authentication**, **comprehensive test coverage** (223 assertions), and **automated database migrations** using Alembic.
 
-It comes with:
+Topics covered:
 
-- 🔐 **Secure Authentication** → JWT-based with role-based access control
-- 📦 **Complete Business Logic** → Products, sales, inventory, customers, and reports
-- ✅ **100% Test Coverage** → 223 passing assertions across all endpoints
-- 🚀 **One-Command Deployment** → Docker Compose handles everything
-
-Think of it as your **ready-to-use POS backend**—just customize and deploy.
+- 🔐 **Authentication** → JWT implementation with role-based access control
+- 📦 **Domain Models** → Products, sales, inventory, customers, and reports
+- ✅ **Testing** → Newman/Postman test suite with 223 assertions
+- 🚀 **Deployment** → Docker containerization with docker-compose
 
 ------
 
@@ -51,17 +49,17 @@ Think of it as your **ready-to-use POS backend**—just customize and deploy.
    - API: `http://localhost:8000`
    - Interactive docs: `http://localhost:8000/docs`
 4. **Run tests** → `./test.sh` executes 223 comprehensive API tests
-5. **Build your POS app** → Use the API endpoints to power your frontend
+5. **Explore and learn** → Study the code, API endpoints, and testing patterns
 
 ------
 
-## 📈 Why It's Awesome
+## � Topics Covered
 
-- 🛠️ **Developer-Friendly** → Clear API structure with auto-generated docs
-- 🚀 **Production-Ready** → 100% test coverage and validated business logic
-- 🌐 **RESTful Design** → Clean endpoints following best practices
-- 📊 **Complete Analytics** → Built-in reporting and business insights
-- 💡 **Easy Integration** → Docker-based deployment, works anywhere
+- 🛠️ **FastAPI** → Async APIs with automatic OpenAPI documentation
+- 🚀 **Testing** → Newman/Postman test suite with 223 assertions across 118 requests
+- 🌐 **REST API Design** → CRUD operations, pagination, filtering
+- 📊 **Database** → SQLAlchemy ORM, relationships, Alembic migrations
+- 💡 **Docker** → Multi-container setup with PostgreSQL
 
 ------
 
@@ -76,7 +74,7 @@ Think of it as your **ready-to-use POS backend**—just customize and deploy.
 - **Users & Roles** → Multi-user support with fine-grained permissions
 - **Employees** → Staff management and activity tracking
 
-All endpoints come with **comprehensive validation** and **error handling**.
+You can study these endpoints to understand RESTful API design, **validation patterns**, and **error handling** strategies.
 
 ------
 
@@ -111,12 +109,12 @@ newman run postman/pandac-pos-api-collection.json \
 docker-compose down
 ```
 
-Now you've got:
-✅ A fully functional POS API
-✅ PostgreSQL database with seeded data
-✅ Interactive API documentation
-✅ Validated with 223+ test assertions
-✅ Ready for frontend integration
+You can now:
+- Explore the POS API functionality
+- Study PostgreSQL database design and seeded data
+- Review interactive API documentation
+- Examine the test suite (223+ assertions)
+- Modify and experiment with the codebase
 
 ------
 
@@ -135,16 +133,15 @@ Now you've got:
 
 ## ✅ Testing & Quality
 
-**Comprehensive Test Coverage:**
-- ✅ **223 passing assertions** (100% success rate)
-- ✅ **118 API requests** across 20 test categories
-- ✅ **Automatic token management** for protected endpoints
-- ✅ **HTML reports** with detailed timing and response data
-- ✅ **Zero failures** - all business logic validated
+**Test Coverage:**
+- 223 passing assertions (100% success rate)
+- 118 API requests across 20 test categories
+- Automatic token management for protected endpoints
+- HTML reports with timing and response data
 
 The test suite covers:
 - Authentication flows and token refresh
-- All CRUD operations for every entity
+- CRUD operations for all entities
 - Business rule validation
 - Error handling and edge cases
 - Analytics and reporting accuracy
@@ -179,10 +176,9 @@ See [ALEMBIC_GUIDE.md](https://github.com/pandaind/pandac-pos/blob/main/ALEMBIC_
 
 ## 🤝 Contributing
 
-Want to add features or improve the system?
+This is a learning project. You can:
 
-1. Fork the repo
-2. Create a feature branch
-3. Write tests for your changes
-4. Ensure all tests pass
-5. Open a PR
+- Explore the code to understand FastAPI patterns
+- Fork and experiment with modifications
+- Add documentation or examples
+- Submit improvements via pull requests
