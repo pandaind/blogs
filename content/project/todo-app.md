@@ -9,7 +9,7 @@ github: "https://github.com/pandaind/todo-app"
 tech_stack: ["React", "TypeScript", "FastAPI", "Python", "PostgreSQL", "Terraform", "AWS ECS", "Docker"]
 status: "Learning"
 featured: false
-weight: 5
+weight: 7
 ---
 
 ## 🧭 Overview
