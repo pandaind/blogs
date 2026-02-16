@@ -42,18 +42,13 @@ Topics covered:
 
 ## ⚙️ How It Works
 
-1. **Clone and start** → `docker-compose up -d` spins up the entire system
-
-2. **Auto-configured database** → PostgreSQL with automatic migrations
-3. **Access the API**:
-   - API: `http://localhost:8000`
-   - Interactive docs: `http://localhost:8000/docs`
-4. **Run tests** → `./test.sh` executes 223 comprehensive API tests
-5. **Explore and learn** → Study the code, API endpoints, and testing patterns
+1. **Start** → `docker-compose up -d`
+2. **Access** → API at `http://localhost:8000`, docs at `http://localhost:8000/docs`
+3. **Test** → `./test.sh` runs 223 API tests
 
 ------
 
-## � Topics Covered
+## 📚 Topics Covered
 
 - 🛠️ **FastAPI** → Async APIs with automatic OpenAPI documentation
 - 🚀 **Testing** → Newman/Postman test suite with 223 assertions across 118 requests
@@ -78,73 +73,19 @@ You can study these endpoints to understand RESTful API design, **validation pat
 
 ------
 
-## 🎬 Example Workflow
-
-Here's how a typical setup looks:
+## 🎬 Quick Start
 
 ```bash
-# 1. Clone the repository
 git clone https://github.com/pandaind/pandac-pos.git
 cd pandac-pos
-
-# 2. Configure environment (optional)
-cp .env.example .env
-# Edit .env with your settings
-
-# 3. Start the system
 docker-compose up -d
-
-# 4. Access the API documentation
-# Open http://localhost:8000/docs in your browser
-
-# 5. Run comprehensive tests
-cd newman-tests
-newman run postman/pandac-pos-api-collection.json \
-  --environment postman/environment.json
-
-# Or use the test script
-./test.sh
-
-# 6. Stop when done
-docker-compose down
 ```
 
-You can now:
-- Explore the POS API functionality
-- Study PostgreSQL database design and seeded data
-- Review interactive API documentation
-- Examine the test suite (223+ assertions)
-- Modify and experiment with the codebase
+Access API docs at `http://localhost:8000/docs`
 
-------
 
-## 📊 API Endpoints at a Glance
 
-- **Authentication** → `/v1/auth/*` - Login, register, refresh tokens
-- **Products** → `/v1/products/*` - Product CRUD, search, categories
-- **Customers** → `/v1/customers/*` - Customer profiles, loyalty
-- **Sales** → `/v1/sales/*` - Transactions, payments, analytics
-- **Inventory** → `/v1/inventory/*` - Stock, suppliers, purchase orders
-- **Reports** → `/v1/reports/*` - Sales reports, financial analytics
-- **Users** → `/v1/users/*` - User management, permissions
-- **Roles** → `/v1/roles/*` - Role-based access control
 
-------
-
-## ✅ Testing & Quality
-
-**Test Coverage:**
-- 223 passing assertions (100% success rate)
-- 118 API requests across 20 test categories
-- Automatic token management for protected endpoints
-- HTML reports with timing and response data
-
-The test suite covers:
-- Authentication flows and token refresh
-- CRUD operations for all entities
-- Business rule validation
-- Error handling and edge cases
-- Analytics and reporting accuracy
 
 ------
 

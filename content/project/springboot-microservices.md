@@ -44,87 +44,12 @@ Topics covered:
 
 ## ⚙️ How It Works
 
-**Three deployment options:**
-
-**Option 1: Docker Compose (Recommended)**
 ```bash
-# Infrastructure only
-docker-compose -f docker-compose.infra.yml up -d
-
-# Services only
-docker-compose -f docker-compose.services.yml up -d
-
-# Everything together
+# Start everything
 docker-compose -f docker-compose.infra.yml -f docker-compose.services.yml up -d
 ```
 
-**Option 2: Mixed (Infrastructure in Docker, Services locally)**
-```bash
-# Start infrastructure
-docker-compose -f docker-compose.infra.yml up -d
-
-# Start services in order
-cd config-server && mvn spring-boot:run
-cd discovery && mvn spring-boot:run
-cd gateway && mvn spring-boot:run
-cd customer && mvn spring-boot:run
-# ... other services
-```
-
-**Option 3: Kubernetes (Local cluster)**
-```bash
-# Setup cluster
-cd deployment
-./k8s-setup.sh install    # Install kubectl, minikube, helm
-./k8s-setup.sh start      # Start cluster
-
-# Build and deploy
-./build-images.sh
-./deploy-k8s.sh
-
-# Access services
-kubectl port-forward -n microservices svc/gateway 8080:8080
-kubectl port-forward -n microservices svc/discovery 8761:8761
-```
-
-------
-
-## 🏗️ Architecture
-
-```
-┌─────────────────────────────────────────────────────────────────┐
-│                         API Gateway (8080)                       │
-│                   Routing & Load Balancing                       │
-└────────────┬───────────────────────────────────────────┬────────┘
-             │                                            │
-    ┌────────▼─────────┐                        ┌────────▼─────────┐
-    │  Discovery (8761)│                        │  Config Server   │
-    │   (Eureka)       │                        │     (8888)       │
-    └──────────────────┘                        └──────────────────┘
-             │
-    ┌────────┴──────────────────────────────────────┐
-    │          Business Services                     │
-    ├────────────┬────────────┬──────────┬──────────┤
-    │  Customer  │  Product   │  Order   │ Payment  │
-    │   (8090)   │   (8050)   │  (8070)  │  (8060)  │
-    └──────┬─────┴──────┬─────┴─────┬────┴────┬─────┘
-           │            │           │         │
-           │     ┌──────▼───────────▼─────────▼──────┐
-           │     │     Apache Kafka (9092)            │
-           │     │   Event Streaming Platform         │
-           │     └──────┬─────────────────────────────┘
-           │            │
-    ┌──────▼────────────▼──────┐
-    │  Notification (8040)     │
-    │   Email Notifications    │
-    └──────────────────────────┘
-
-Supporting Infrastructure:
-- PostgreSQL (5432): Customer, Product, Order, Payment data
-- MongoDB (27017): Notification data
-- Zipkin (9411): Distributed tracing
-- MailDev (1080): Email testing
-```
+Access API Gateway at `http://localhost:8080`, Eureka at `http://localhost:8761`
 
 ------
 
@@ -151,139 +76,23 @@ Supporting Infrastructure:
 
 ------
 
-## 🎬 Example Workflow
+## 🎬 Quick Start
 
 ```bash
-# 1. Clone the repository
 git clone https://github.com/pandaind/springboot-microservices.git
-cd springboot-microservices
-
-# 2. Start with Docker Compose
-cd deployment
+cd springboot-microservices/deployment
 docker-compose -f docker-compose.infra.yml -f docker-compose.services.yml up -d
-
-# 3. Verify services are running
-docker-compose ps
-
-# 4. Access the applications
-# API Gateway: http://localhost:8080
-# Eureka Dashboard: http://localhost:8761
-# Zipkin Tracing: http://localhost:9411
-# PgAdmin: http://localhost:5050
-# Mongo Express: http://localhost:8081
-# MailDev: http://localhost:1080
-
-# 5. Test APIs using Postman collection
-# Import postman/E-commerce-Microservices.postman_collection.json
-# Use postman/E-commerce-Environment.postman_environment.json
-
-# 6. Stop services
-docker-compose -f docker-compose.infra.yml -f docker-compose.services.yml down
 ```
 
-You can now:
-- Explore microservices communication patterns
-- Study Eureka service discovery
-- Review Spring Cloud Config implementation
-- Examine Kafka event-driven architecture
-- Inspect Zipkin distributed tracing
-- Experiment with Kubernetes deployment
+Access API Gateway at `http://localhost:8080` and Eureka Dashboard at `http://localhost:8761`
+
+
+
+
 
 ------
 
-## 📊 API Endpoints
-
-Access all APIs through the Gateway at `http://localhost:8080`:
-
-- **Customers** → `GET/POST/PUT/DELETE /api/v1/customers`
-- **Products** → `GET/POST/PUT/DELETE /api/v1/products`
-- **Orders** → `GET/POST /api/v1/orders`
-- **Payments** → `POST /api/v1/payments`
-
-------
-
-## 📡 Event-Driven Communication
-
-The system uses Apache Kafka for asynchronous messaging:
-
-- **Order Events** → Published by Order Service → Consumed by Notification Service
-- **Payment Events** → Published by Payment Service → Consumed by Notification Service
-
-This demonstrates:
-- Decoupling between services
-- Asynchronous processing
-- Event sourcing patterns
-- Kafka integration with Spring Boot
-
-------
-
-## 🐳 Kubernetes Deployment
-
-The `k8s-setup.sh` script provides cluster management:
-
-```bash
-# Cluster operations
-./k8s-setup.sh start          # Start cluster
-./k8s-setup.sh stop           # Stop cluster
-./k8s-setup.sh restart        # Restart cluster
-./k8s-setup.sh status         # Show status
-
-# Application deployment
-./k8s-setup.sh deploy k8s/    # Deploy from YAML files
-./k8s-setup.sh get-all        # Show all resources
-
-# Debugging
-./k8s-setup.sh logs <pod-name>           # Get pod logs
-./k8s-setup.sh exec <pod-name>           # Execute in pod
-./k8s-setup.sh port-forward <svc> <port> # Port forward service
-```
-
-------
-
-## 📁 Project Structure
-
-```
-springboot-microservices/
-├── config-server/           # Spring Cloud Config Server
-├── customer/                # Customer management service
-├── discovery/               # Eureka service registry
-├── gateway/                 # API Gateway
-├── notification/            # Email notification service
-├── order/                   # Order processing service
-├── payment/                 # Payment processing service
-├── product/                 # Product catalog service (with Flyway)
-├── deployment/              # Deployment configurations
-│   ├── docker-compose.infra.yml
-│   ├── docker-compose.services.yml
-│   ├── k8s-setup.sh
-│   ├── build-images.sh
-│   ├── deploy-k8s.sh
-│   └── k8s/                # Kubernetes manifests
-│       ├── namespace.yaml
-│       ├── configmaps/
-│       ├── deployments/
-│       └── services/
-├── diagrams/                # Architecture diagrams
-├── postman/                 # API testing collection
-│   ├── E-commerce-Microservices.postman_collection.json
-│   ├── E-commerce-Environment.postman_environment.json
-│   └── QUICK_START_FLOWS.md
-├── KUBERNETES.md            # Kubernetes guide
-└── TODO.md                  # Future enhancements
-```
-
-------
-
-## 🔧 Monitoring & Observability
-
-- **Service Discovery** → Eureka Dashboard at `http://localhost:8761`
-- **Distributed Tracing** → Zipkin at `http://localhost:9411`
-- **Database Management** → PgAdmin at `http://localhost:5050`, Mongo Express at `http://localhost:8081`
-- **Email Testing** → MailDev at `http://localhost:1080`
-
-------
-
-## 📚 Topics Covered
+##  Topics Covered
 
 - 🛠️ **Microservices Patterns** → Service decomposition, API Gateway, Service Discovery
 - 🚀 **Spring Cloud** → Config Server, Eureka, Gateway routing
