@@ -1,6 +1,6 @@
 ---
 title: "Todo App - Full-Stack with AWS Deployment"
-date: 2024-07-15
+date: 2025-07-15
 summary: "Learning project: Full-stack Todo app with React, FastAPI, and AWS ECS deployment using Terraform."
 description: "Educational full-stack application demonstrating React TypeScript frontend, FastAPI backend, JWT authentication, PostgreSQL database, Docker containerization, and AWS ECS deployment with Terraform IaC."
 tags: ["React", "FastAPI", "TypeScript", "Python", "AWS", "Terraform", "Docker"]

@@ -1,6 +1,6 @@
 ---
 title: "EstiMate - Planning Poker"
-date: 2024-09-20
+date: 2026-02-01
 summary: "Learning project: Real-time collaborative story estimation with Spring Boot and React."
 description: "Educational Planning Poker application demonstrating WebSocket real-time communication, Spring Boot backend, React frontend, story estimation, and comprehensive testing with Newman and Playwright."
 tags: ["Spring Boot", "React", "WebSocket", "Java", "Agile", "Real-time"]

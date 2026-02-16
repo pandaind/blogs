@@ -1,6 +1,6 @@
 ---
 title: "Pandac Store - Plant E-Commerce Platform"
-date: 2024-06-15
+date: 2025-06-15
 summary: "Learning project: Full-stack e-commerce with React, Spring Boot, and Docker."
 description: "Educational full-stack e-commerce application demonstrating React 19, Spring Boot 3.5, MySQL, Nginx reverse proxy, JWT authentication, and payment integration."
 tags: ["Spring Boot", "React", "E-Commerce", "Docker", "Full-Stack"]

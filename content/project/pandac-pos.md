@@ -1,6 +1,6 @@
 ---
 title: "POS API"
-date: 2024-10-15
+date: 2025-10-15
 summary: "Learning project: Point of Sale API with FastAPI, PostgreSQL, and Docker."
 description: "Educational POS system API demonstrating authentication, inventory management, sales tracking, and testing. FastAPI, PostgreSQL, SQLAlchemy, and Alembic."
 tags: ["FastAPI", "Python", "PostgreSQL", "REST API", "Docker"]

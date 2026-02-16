@@ -1,6 +1,6 @@
 ---
 title: "E-Commerce Microservices"
-date: 2024-01-20
+date: 2025-01-20
 summary: "Learning project: Microservices architecture with Spring Boot, Spring Cloud, and Kubernetes."
 description: "Educational e-commerce platform demonstrating microservices architecture with Spring Boot 3.x, Spring Cloud, service discovery, API gateway, event-driven communication, and Kubernetes deployment."
 tags: ["Spring Boot", "Microservices", "Spring Cloud", "Kubernetes", "Docker", "Kafka"]

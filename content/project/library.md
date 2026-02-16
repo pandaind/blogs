@@ -1,6 +1,6 @@
 ---
 title: "Library Management System"
-date: 2024-08-10
+date: 2025-08-10
 summary: "Learning project: GraphQL and gRPC microservices with Spring Boot and PostgreSQL."
 description: "Educational Library Management System demonstrating GraphQL API development, gRPC inter-service communication, Spring Boot microservices architecture, JPA/Hibernate, Docker deployment, and automated testing."
 tags: ["Spring Boot", "GraphQL", "gRPC", "Java", "Microservices", "Docker", "PostgreSQL"]
