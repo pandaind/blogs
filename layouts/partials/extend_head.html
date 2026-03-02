@@ -7,3 +7,7 @@
 {{- if eq .Type "project" }}
 <link rel="stylesheet" href="{{ "css/projects.css" | absURL }}">
 {{- end }}
+
+{{- if eq .Type "thoughts" }}
+<link rel="stylesheet" href="{{ "css/timeline.css" | absURL }}">
+{{- end }}

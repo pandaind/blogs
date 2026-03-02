@@ -145,11 +145,16 @@ menu:
       url: /project/
       weight: 50
       pre: "<i class='fas fa-flask'></i> "
-    - identifier: tags
-      name: Tags
-      url: /tags/
-      weight: 30
-      pre: "<i class='fas fa-tags'></i> "
+    - identifier: thoughts
+      name: Microblogs
+      url: /thoughts/
+      weight: 25
+      pre: "<i class='fas fa-feather-alt'></i> "
+    # - identifier: tags
+    #   name: Tags
+    #   url: /tags/
+    #   weight: 30
+    #   pre: "<i class='fas fa-tags'></i> "
     # - identifier: archive
     #   name: Archive
     #   url: /archives/
