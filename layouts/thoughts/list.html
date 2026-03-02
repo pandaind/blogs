@@ -11,9 +11,9 @@
   <!-- Tag filter bar -->
   {{- $allTags := slice }}
   {{- range .Pages }}
-    {{- range .Params.tags }}
-      {{- $allTags = $allTags | append . }}
-    {{- end }}
+  {{- range .Params.tags }}
+  {{- $allTags = $allTags | append . }}
+  {{- end }}
   {{- end }}
   {{- $allTags = $allTags | uniq | sort }}
 
@@ -29,50 +29,50 @@
     {{- $pages := .Pages.ByDate.Reverse }}
     {{- $currentYear := "" }}
     {{- range $pages }}
-      {{- $year := .Date.Format "2006" }}
-      {{- $tagList := slice }}
-      {{- range .Params.tags }}
-        {{- $tagList = $tagList | append (. | urlize) }}
+    {{- $year := .Date.Format "2006" }}
+    {{- $tagList := slice }}
+    {{- range .Params.tags }}
+    {{- $tagList = $tagList | append (. | urlize) }}
+    {{- end }}
+    <div class="timeline-item" data-tags="{{ delimit $tagList " " }}">
+
+      {{- if ne $year $currentYear }}
+      <div class="timeline-year">{{ $year }}</div>
+      {{- $currentYear = $year }}
       {{- end }}
-      <div class="timeline-item" data-tags="{{ delimit $tagList " " }}">
 
-        {{- if ne $year $currentYear }}
-          <div class="timeline-year">{{ $year }}</div>
-          {{- $currentYear = $year }}
+      <div class="timeline-dot">
+        {{- with .Params.emoji }}
+        <span class="dot-emoji">{{ . }}</span>
+        {{- else }}
+        <span class="dot-default"></span>
         {{- end }}
-
-        <div class="timeline-dot">
-          {{- with .Params.emoji }}
-            <span class="dot-emoji">{{ . }}</span>
-          {{- else }}
-            <span class="dot-default"></span>
-          {{- end }}
-        </div>
-
-        <div class="timeline-card">
-          <div class="timeline-meta">
-            <span class="timeline-date">
-              <i class="far fa-calendar-alt"></i>
-              {{ .Date.Format "Jan 02, 2006" }}
-            </span>
-            <span class="timeline-time">
-              <i class="far fa-clock"></i>
-              {{ .Date.Format "15:04" }}
-            </span>
-          </div>
-          <div class="timeline-content">
-            {{ .Content }}
-          </div>
-          {{- if .Params.tags }}
-          <div class="timeline-tags">
-            {{- range .Params.tags }}
-            <a href="/tags/{{ . | urlize }}/" class="note-tag">#{{ . }}</a>
-            {{- end }}
-          </div>
-          {{- end }}
-        </div>
-
       </div>
+
+      <div class="timeline-card">
+        <div class="timeline-meta">
+          <span class="timeline-date">
+            <i class="far fa-calendar-alt"></i>
+            {{ .Date.Format "Jan 02, 2006" }}
+          </span>
+          <span class="timeline-time">
+            <i class="far fa-clock"></i>
+            {{ .Date.Format "15:04" }}
+          </span>
+        </div>
+        <div class="timeline-content">
+          {{ .Content }}
+        </div>
+        {{- if .Params.tags }}
+        <div class="timeline-tags">
+          {{- range .Params.tags }}
+          <a href="/tags/{{ . | urlize }}/" class="note-tag">#{{ . }}</a>
+          {{- end }}
+        </div>
+        {{- end }}
+      </div>
+
+    </div>
     {{- end }}
   </div>
 

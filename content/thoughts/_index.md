@@ -1,5 +1,5 @@
 ---
-title: "MicroThoughts"
+title: "Microblogs"
 description: "Short thoughts, quick tips, and micro updates."
 type: thoughts
 ---
