@@ -1,10 +1,24 @@
 {{- if not (.Param "hideFooter") }}
 <footer class="footer">
-    {{- if site.Copyright }}
-    <span>{{ site.Copyright | markdownify }}</span>
-    {{- else }}
-    <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a></span>
+    {{- if not site.Params.footer.hideCopyright }}
+        {{- if site.Copyright }}
+        <span>{{ site.Copyright | markdownify }}</span>
+        {{- else }}
+        <span>&copy; {{ now.Year }} <a href="{{ "" | absLangURL }}">{{ site.Title }}</a></span>
+        {{- end }}
+        {{- print " · "}}
     {{- end }}
+
+    {{- with site.Params.footer.text }}
+        {{ . | markdownify }}
+        {{- print " · "}}
+    {{- end }}
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
 {{- end }}
 
@@ -15,9 +29,6 @@
     </svg>
 </a>
 {{- end }}
-
-<!-- Popup Chat Widget -->
-{{- partial "popup-chat.html" . }}
 
 {{- partial "extend_footer.html" . }}
 
@@ -69,18 +80,16 @@
 
 {{- if (not site.Params.disableThemeToggle) }}
 <script>
-    const themeToggle = document.getElementById("theme-toggle");
-    if (themeToggle) {
-        themeToggle.addEventListener("click", () => {
-            if (document.body.className.includes("dark")) {
-                document.body.classList.remove('dark');
-                localStorage.setItem("pref-theme", 'light');
-            } else {
-                document.body.classList.add('dark');
-                localStorage.setItem("pref-theme", 'dark');
-            }
-        });
-    }
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
 </script>
 {{- end }}
 
@@ -132,16 +141,4 @@
         }
     });
 </script>
-{{- end }}
-
-<!-- Popup Chat Scripts -->
-{{- $mainJS := resources.Get "js/main.js" }}
-{{- $chatJS := resources.Get "js/chat.js" }}
-{{- $bundledJS := slice $mainJS $chatJS | resources.Concat "js/chat-bundle.js" }}
-
-{{- if hugo.IsProduction }}
-  {{- $bundledJS = $bundledJS | minify | fingerprint }}
-  <script src="{{ $bundledJS.Permalink }}" integrity="{{ $bundledJS.Data.Integrity }}"></script>
-{{- else }}
-  <script src="{{ $bundledJS.Permalink }}"></script>
 {{- end }}
