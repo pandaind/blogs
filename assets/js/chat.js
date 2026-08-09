@@ -387,34 +387,65 @@ function chatClose() {
 
 // Validate contact information and start conversation
 async function validateAndStartConversation() {
-  const name = document.getElementById("userName").value.trim();
-  const contact = document.getElementById("userContact").value.trim();
+  const nameInput = document.getElementById("userName");
+  const contactInput = document.getElementById("userContact");
+  const nameError = document.getElementById("userNameError") || { style: {}, textContent: '' };
+  const contactError = document.getElementById("userContactError") || { style: {}, textContent: '' };
+  
+  const name = nameInput.value.trim();
+  const contact = contactInput.value.trim();
 
-  // Validate required fields
+  // Reset errors
+  nameError.style.display = "none";
+  contactError.style.display = "none";
+  nameInput.style.borderColor = "";
+  contactInput.style.borderColor = "";
+
+  let isValid = true;
+
+  // 1. Validate Name
   if (!name) {
-    alert("Please enter your name.");
-    document.getElementById("userName").focus();
-    return;
+    nameError.textContent = "Please enter your name.";
+    nameError.style.display = "block";
+    nameInput.style.borderColor = "#ff4d4f";
+    isValid = false;
+  } else if (name.length < 2) {
+    nameError.textContent = "Name must be at least 2 characters long.";
+    nameError.style.display = "block";
+    nameInput.style.borderColor = "#ff4d4f";
+    isValid = false;
+  } else if (!/^[a-zA-Z\s\-\']+$/.test(name)) {
+    nameError.textContent = "Name can only contain letters, spaces, hyphens, and apostrophes.";
+    nameError.style.display = "block";
+    nameInput.style.borderColor = "#ff4d4f";
+    isValid = false;
   }
 
+  // 2. Validate Contact
   if (!contact) {
-    alert("Please enter your email or phone number.");
-    document.getElementById("userContact").focus();
-    return;
+    contactError.textContent = "Please enter your email or phone number.";
+    contactError.style.display = "block";
+    contactInput.style.borderColor = "#ff4d4f";
+    isValid = false;
   }
+
+  if (!isValid) return;
 
   // Determine if contact is email or phone
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+  // Allows optional +, dashes, spaces, brackets, and expects at least 10 real digits
+  const phoneRegex = /^[\+]?[0-9\-\s\(\)]{10,20}$/;
 
   let contactType = '';
   if (emailRegex.test(contact)) {
     contactType = 'email';
-  } else if (phoneRegex.test(contact.replace(/[\s\-\(\)]/g, ''))) {
+  } else if (phoneRegex.test(contact) && contact.replace(/\D/g, '').length >= 10) {
     contactType = 'phone';
   } else {
-    alert("Please enter a valid email address or phone number.");
-    document.getElementById("userContact").focus();
+    contactError.textContent = "Please enter a valid email address or a valid phone number (at least 10 digits).";
+    contactError.style.display = "block";
+    contactInput.style.borderColor = "#ff4d4f";
+    contactInput.focus();
     return;
   }
 
