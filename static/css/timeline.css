@@ -236,39 +236,39 @@
 }
 
 /* ---------- Dark mode overrides ---------- */
-.dark .timeline-card {
+[data-theme="dark"] .timeline-card {
   background: var(--entry, #1e293b);
   border-color: var(--border, #334155);
 }
 
-.dark .dot-default {
+[data-theme="dark"] .dot-default {
   box-shadow: 0 0 0 3px var(--theme, #0f172a);
 }
 
-.dark .tag-filter {
+[data-theme="dark"] .tag-filter {
   border-color: #555;
   color: #aaa;
 }
 
-.dark .tag-filter:hover {
+[data-theme="dark"] .tag-filter:hover {
   border-color: #ccc;
   color: #ccc;
   background: transparent;
 }
 
-.dark .tag-filter.active {
+[data-theme="dark"] .tag-filter.active {
   background: #f1f1f1;
   border-color: #f1f1f1;
   color: #111;
   box-shadow: none;
 }
 
-.dark .note-tag {
+[data-theme="dark"] .note-tag {
   background: color-mix(in srgb, var(--primary, #60a5fa) 15%, transparent);
   color: var(--primary, #60a5fa);
 }
 
-.dark .note-tag:hover {
+[data-theme="dark"] .note-tag:hover {
   background: color-mix(in srgb, var(--primary, #60a5fa) 25%, transparent);
 }
 
