@@ -3,7 +3,7 @@
     background: 0 0;
 }
 
-.list:not(.dark)::-webkit-scrollbar-track {
+html:not([data-theme="dark"]) .list::-webkit-scrollbar-track {
     background: var(--code-bg);
 }
 
@@ -13,7 +13,7 @@
     border-radius: var(--radius);
 }
 
-.list:not(.dark)::-webkit-scrollbar-thumb {
+html:not([data-theme="dark"]) .list::-webkit-scrollbar-thumb {
     border: 5px solid var(--code-bg);
 }
 
