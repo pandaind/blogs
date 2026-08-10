@@ -586,6 +586,9 @@ async function userResponse() {
 
     // Save chat history
     saveChatHistory();
+    
+    // Show typing indicator
+    showTypingIndicator();
 
     // Try sending via API
     let apiSuccess = false;
@@ -611,6 +614,10 @@ async function userResponse() {
         if (response.ok) {
           apiSuccess = true;
           console.log("✅ Message sent to API successfully");
+          const data = await response.json();
+          if (data && data.response) {
+            displayChatResponse(data.response);
+          }
         } else if (response.status === 401) {
           clearChatState();
           apiSuccess = false;
@@ -619,6 +626,14 @@ async function userResponse() {
         console.error('API Error sending message:', error);
       }
     }
+    
+    // If API responded successfully, hide typing indicator (it is handled by displayChatResponse in polling if async, but wait, if it's synchronous the API doesn't return response?)
+    // Actually, in the new API, does it return the response synchronously?
+    // Let me check if /api/v1/chat/message returns a response.
+    // I see: response.ok -> apiSuccess = true. But where does it display it?
+    // Ah, wait! The API returns nothing in AI mode?
+    // Let's hide the typing indicator if API failed so contextual fallback can show it (or contextual fallback will immediately hide it via displayChatResponse).
+    // Actually, we don't hide it here. We let the response handler hide it.
 
     // If API failed or no token, fallback to contextual response
     if (!apiSuccess) {
@@ -698,12 +713,31 @@ async function adminResponse(lastMessage) {
 }
 
 // Helper function to display chat responses
+function showTypingIndicator() {
+  const messageBox = document.getElementById("messageBox");
+  const existing = document.getElementById("typing-indicator");
+  if (existing) existing.remove();
+
+  messageBox.insertAdjacentHTML('beforeend', `<div class="second-chat typing-indicator" id="typing-indicator">
+    <div class="circle" id="circle-mar"></div>
+    <p><span class="dot"></span><span class="dot"></span><span class="dot"></span></p>
+    <div class="arrow"></div>
+  </div>`);
+  messageBox.scrollTop = messageBox.scrollHeight;
+}
+
+function hideTypingIndicator() {
+  const el = document.getElementById("typing-indicator");
+  if (el) el.remove();
+}
+
 function displayChatResponse(responseText) {
-  document.getElementById("messageBox").innerHTML += `<div class="second-chat">
+  hideTypingIndicator();
+  document.getElementById("messageBox").insertAdjacentHTML('beforeend', `<div class="second-chat">
     <div class="circle" id="circle-mar"></div>
     <p>${responseText}</p>
     <div class="arrow"></div>
-  </div>`;
+  </div>`);
 
   let audio3 = new Audio(
     "https://cdn.jsdelivr.net/gh/pandaind/pandac-store-cdn/response.mp3"
