@@ -529,6 +529,9 @@ function userResponse() {
     // Save chat history
     saveChatHistory();
 
+    // Show typing indicator while waiting for response
+    showTypingIndicator();
+
     setTimeout(() => {
       adminResponse();
     }, 1000);
@@ -586,7 +589,27 @@ async function adminResponse() {
 }
 
 // Helper function to display chat responses
+function showTypingIndicator() {
+  const messageBox = document.getElementById("messageBox");
+  // Remove existing indicator if any
+  const existing = document.getElementById("typing-indicator");
+  if (existing) existing.remove();
+
+  messageBox.innerHTML += `<div class="second-chat typing-indicator" id="typing-indicator">
+    <div class="circle" id="circle-mar"></div>
+    <p><span class="dot"></span><span class="dot"></span><span class="dot"></span></p>
+    <div class="arrow"></div>
+  </div>`;
+  messageBox.scrollTop = messageBox.scrollHeight;
+}
+
+function hideTypingIndicator() {
+  const el = document.getElementById("typing-indicator");
+  if (el) el.remove();
+}
+
 function displayChatResponse(responseText) {
+  hideTypingIndicator();
   document.getElementById("messageBox").innerHTML += `<div class="second-chat">
     <div class="circle" id="circle-mar"></div>
     <p>${responseText}</p>
