@@ -11,6 +11,7 @@ let userInfo = {
 
 // Authentication token storage
 let authToken = null;
+let replyPollingInterval = null;
 
 // Chat state management
 const CHAT_STATE_KEY = 'pandac-chat-state';
@@ -97,6 +98,9 @@ function loadChatState() {
       // Load chat history
       loadChatHistory();
       
+      // Start polling for manual replies
+      startPolling();
+      
       return true;
     }
     
@@ -121,16 +125,16 @@ function loadChatHistory() {
     // Add messages back to chat
     history.forEach(msg => {
       if (msg.isUser) {
-        messageBox.innerHTML += `<div class="first-chat">
+        messageBox.insertAdjacentHTML('beforeend', `<div class="first-chat">
           <p>${msg.text}</p>
           <div class="arrow"></div>
-        </div>`;
+        </div>`);
       } else {
-        messageBox.innerHTML += `<div class="second-chat">
+        messageBox.insertAdjacentHTML('beforeend', `<div class="second-chat">
           <div class="circle" id="circle-mar"></div>
           <p>${msg.text}</p>
           <div class="arrow"></div>
-        </div>`;
+        </div>`);
       }
     });
     
@@ -147,6 +151,7 @@ function clearChatState() {
   localStorage.removeItem(CHAT_HISTORY_KEY);
   localStorage.removeItem(AUTH_TOKEN_KEY);
   authToken = null;
+  stopPolling();
 }
 
 // Initialize chat on page load
@@ -457,6 +462,9 @@ function openConversation() {
   
   // Save state
   saveChatState();
+  
+  // Start polling for manual replies
+  startPolling();
 }
 
 // End conversation with confirmation
@@ -512,10 +520,10 @@ function userResponse() {
   if (userText == "") {
     alert("Please type something!");
   } else {
-    document.getElementById("messageBox").innerHTML += `<div class="first-chat">
+    document.getElementById("messageBox").insertAdjacentHTML('beforeend', `<div class="first-chat">
       <p>${userText}</p>
       <div class="arrow"></div>
-    </div>`;
+    </div>`);
     let audio3 = new Audio(
       "https://cdn.jsdelivr.net/gh/pandaind/pandac-store-cdn/send.mp3"
     );
@@ -588,6 +596,42 @@ async function adminResponse() {
   }
 }
 
+// Polling mechanism for Admin Telegram replies
+function startPolling() {
+  if (replyPollingInterval) clearInterval(replyPollingInterval);
+  if (!authToken) return;
+  
+  console.log("Starting to poll for admin replies...");
+  replyPollingInterval = setInterval(async () => {
+    try {
+      const response = await fetch('https://pandac.in/api/v1/chat/reply', {
+        headers: {
+          'Authorization': `Bearer ${authToken}`,
+          'Accept': 'application/json'
+        }
+      });
+      
+      if (response.status === 200) {
+        const data = await response.json();
+        if (data && data.message) {
+          console.log("📥 Received manual reply from admin");
+          displayChatResponse(data.message);
+        }
+      }
+    } catch (e) {
+      console.log("Error polling for replies:", e);
+    }
+  }, 5000); // Poll every 5 seconds
+}
+
+function stopPolling() {
+  if (replyPollingInterval) {
+    clearInterval(replyPollingInterval);
+    replyPollingInterval = null;
+    console.log("Stopped polling for admin replies.");
+  }
+}
+
 // Helper function to display chat responses
 function showTypingIndicator() {
   const messageBox = document.getElementById("messageBox");
@@ -595,11 +639,11 @@ function showTypingIndicator() {
   const existing = document.getElementById("typing-indicator");
   if (existing) existing.remove();
 
-  messageBox.innerHTML += `<div class="second-chat typing-indicator" id="typing-indicator">
+  messageBox.insertAdjacentHTML('beforeend', `<div class="second-chat typing-indicator" id="typing-indicator">
     <div class="circle" id="circle-mar"></div>
     <p><span class="dot"></span><span class="dot"></span><span class="dot"></span></p>
     <div class="arrow"></div>
-  </div>`;
+  </div>`);
   messageBox.scrollTop = messageBox.scrollHeight;
 }
 
@@ -610,11 +654,11 @@ function hideTypingIndicator() {
 
 function displayChatResponse(responseText) {
   hideTypingIndicator();
-  document.getElementById("messageBox").innerHTML += `<div class="second-chat">
+  document.getElementById("messageBox").insertAdjacentHTML('beforeend', `<div class="second-chat">
     <div class="circle" id="circle-mar"></div>
     <p>${responseText}</p>
     <div class="arrow"></div>
-  </div>`;
+  </div>`);
   
   let audio3 = new Audio(
     "https://cdn.jsdelivr.net/gh/pandaind/pandac-store-cdn/response.mp3"
