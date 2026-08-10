@@ -615,7 +615,7 @@ async function userResponse() {
           apiSuccess = true;
           console.log("✅ Message sent to API successfully");
           const data = await response.json();
-          if (data && data.response) {
+          if (data && data.response && !data.response.includes("Message delivered")) {
             displayChatResponse(data.response);
           }
         } else if (response.status === 401) {
