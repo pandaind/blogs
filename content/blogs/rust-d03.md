@@ -1,8 +1,8 @@
 ---
 title: "`cargo new` — Your First Rust Project - Day 03"
-date: 2026-08-17T12:22:56+05:30
-draft: true
-tags: [ "default" ]
+date: 2026-08-19T12:22:56+05:30
+draft: false
+tags: [ "rust", "rust for java dev" ]
 ---
 
 In Java, starting a project means choosing Maven or Gradle, creating a directory structure, writing a `pom.xml` or `build.gradle`, and eventually getting to actual code. In Rust, you run one command.

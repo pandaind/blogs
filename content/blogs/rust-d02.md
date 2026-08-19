@@ -1,8 +1,8 @@
 ---
 title: "Installing Rust: `rustup` is Your New Best Friend - Day 02"
-date: 2026-08-17T12:22:51+05:30
-draft: true
-tags: [ "default" ]
+date: 2026-08-18T12:22:51+05:30
+draft: false
+tags: [ "rust", "rust for java dev" ]
 ---
 
 Setting up a Java project used to mean downloading a JDK, setting `JAVA_HOME`, maybe fighting with your IDE, and picking a build tool. Rust makes this refreshingly simple.
