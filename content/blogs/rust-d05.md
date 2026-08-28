@@ -1,8 +1,8 @@
 ---
 title: "`println!` — Why That `!` Matters - Day 05"
-date: 2026-08-17T12:23:04+05:30
-draft: true
-tags: [ "default" ]
+date: 2026-08-26T12:23:04+05:30
+draft: false
+tags: [ "rust", "rust for java dev" ]
 ---
 
 You've seen `println!("Hello, world!")` already. But why the exclamation mark? In Rust, `!` means you're calling a **macro**, not a regular function.

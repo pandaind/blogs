@@ -1,8 +1,8 @@
 ---
 title: "`let` vs Java's `var`: Immutable by Default - Day 06"
-date: 2026-08-17T12:23:07+05:30
-draft: true
-tags: [ "default" ]
+date: 2026-08-27T12:23:07+05:30
+draft: false
+tags: [ "rust", "rust for java dev" ]
 ---
 
 In Java, variables are mutable unless you slap `final` on them. Most developers don't bother, so everything ends up mutable by default — even when it doesn't need to be.

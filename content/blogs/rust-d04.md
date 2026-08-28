@@ -1,8 +1,8 @@
 ---
 title: "`fn main()` — What a Rust Program Looks Like - Day 04"
-date: 2026-08-17T12:23:00+05:30
-draft: true
-tags: [ "default" ]
+date: 2026-08-25T12:23:00+05:30
+draft: false
+tags: [ "rust", "rust for java dev" ]
 ---
 
 Open `src/main.rs` and you'll see this:

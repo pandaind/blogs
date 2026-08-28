@@ -1,8 +1,8 @@
 ---
 title: "`let mut` — Opting Into Mutability - Day 07"
-date: 2026-08-17T12:23:10+05:30
-draft: true
-tags: [ "default" ]
+date: 2026-08-28T12:23:10+05:30
+draft: false
+tags: [ "rust", "rust for java dev" ]
 ---
 
 Yesterday we saw that `let` gives you an immutable binding. But sometimes you genuinely need a variable to change — a counter, a running total, a buffer being filled. For that, you use `let mut`.
