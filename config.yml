@@ -141,7 +141,7 @@ menu:
       weight: 10
       pre: "<i class='fas fa-search'></i> "
     - identifier: projects
-      name: Lab
+      name: Projects
       url: /project/
       weight: 50
       pre: "<i class='fas fa-flask'></i> "
