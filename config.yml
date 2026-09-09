@@ -40,7 +40,7 @@ params:
   # Popup Chat Configuration
   popupChat:
     enabled: true
-    autoPopup: false
+    autoPopup: true
     autoPopupDelay: 3000  # milliseconds
     title: "Hello, How are you today?"
     subtitle: "Please share your details below"
