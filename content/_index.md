@@ -2,17 +2,12 @@
 title: PandaC
 description: Chittaranjan Panda's personal page
 profile:
-  greeting: "Hi 👋, I'm"
   name: Chittaranjan Panda
   role: Full-stack developer
   headline: Turning real-world problems into simple, effective solutions.
   actions:
-    - { name: Read the blog, url: /blogs/, style: primary }
+    - { name: See my work, url: /projects/, style: primary }
     - { name: Resume, url: /resume/, style: secondary }
-sections: [projects, activity, posts, notes]
-projects: { title: Projects, limit: 4, link_text: All projects }
-posts: { title: Latest writing, limit: 6, link_text: All posts }
-notes: { title: Microblogs, limit: 3, link_text: All microblogs }
 skills:
   items: [Java, Spring Boot, Rust, Python, Apache Camel, Kafka, Docker, Kubernetes, Azure, AWS]
 ---

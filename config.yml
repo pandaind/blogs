@@ -12,16 +12,13 @@ params:
   favicon: img/favico/favicon.ico
   color_scheme: auto
   skin: slate
-  blog_section: blogs
-  notes_section: thoughts
-  projects_section: project
-  footer_text: "PandaC · Chittaranjan Panda"
+  skin_switcher: true
 
 menus:
   main:
-    - { name: Blogs, url: /blogs/, weight: 1 }
-    - { name: Projects, url: /project/, weight: 2 }
-    - { name: Microblogs, url: /thoughts/, weight: 3 }
+    - { name: Work, url: /projects/, weight: 1 }
+    - { name: Writing, url: /blog/, weight: 2 }
+    - { name: Notes, url: /notes/, weight: 3 }
     - { name: Resume, url: /resume/, weight: 4 }
 
 taxonomies: [tags]

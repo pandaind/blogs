@@ -13,9 +13,9 @@ meteorite build        # write the site to public/
 
 | Path | What it is |
 |---|---|
-| `content/blogs/` | Posts |
-| `content/project/` | Projects (cards on the home page and `/project/`) |
-| `content/thoughts/` | Microblogs |
+| `content/blog/` | Posts |
+| `content/projects/` | Projects (cards on the home page and `/projects/`) |
+| `content/notes/` | Short notes |
 | `content/resume.md` + `data/resume.yml` | Resume |
 | `data/socials.yml` | Social links |
 | `static/` | Images and files, copied to the site root (including `CNAME`) |
