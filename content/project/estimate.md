@@ -1,15 +1,16 @@
 ---
 title: "EstiMate - Planning Poker"
 date: 2026-02-01
-summary: "Learning project: Real-time collaborative story estimation with Spring Boot and React."
-description: "Educational Planning Poker application demonstrating WebSocket real-time communication, Spring Boot backend, React frontend, story estimation, and comprehensive testing with Newman and Playwright."
+description: "Learning project: Real-time collaborative story estimation with Spring Boot and React."
+abstract: "Educational Planning Poker application demonstrating WebSocket real-time communication, Spring Boot backend, React frontend, story estimation, and comprehensive testing with Newman and Playwright."
 tags: ["Spring Boot", "React", "WebSocket", "Java", "Agile", "Real-time"]
-thumbnail: "/img/estimate.png"
-github: "https://github.com/pandaind/estimate"
-tech_stack: ["Spring Boot", "React", "Java 21", "WebSocket", "H2 Database", "Vite", "Tailwind CSS"]
+cover: "img/estimate.png"
+repo: "https://github.com/pandaind/estimate"
+stack: ["Spring Boot", "React", "Java 21", "WebSocket", "H2 Database", "Vite", "Tailwind CSS"]
 status: "Learning"
 featured: false
 weight: 5
+year: 2026
 ---
 
 ## 🧭 Overview

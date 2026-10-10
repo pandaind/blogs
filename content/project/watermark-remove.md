@@ -1,15 +1,16 @@
 ---
 title: "Watermark Remover - Private Video Desktop Application"
 date: 2026-03-26
-summary: "Cross-platform desktop application to remove static watermarks from video files using local AI/Computer Vision."
-description: "A privacy-focused desktop application built with Electron, React, and Python. It uses OpenCV and FFmpeg to remove watermarks from videos through inpainting and other algorithms, all processed locally on the user's hardware."
+description: "Cross-platform desktop application to remove static watermarks from video files using local AI/Computer Vision."
+abstract: "A privacy-focused desktop application built with Electron, React, and Python. It uses OpenCV and FFmpeg to remove watermarks from videos through inpainting and other algorithms, all processed locally on the user's hardware."
 tags: ["Electron", "React", "Python", "OpenCV", "FFmpeg", "TypeScript", "Vite"]
-thumbnail: "/img/watermark-remove.png"
-github: "https://github.com/pandaind/watermark-remove"
-tech_stack: ["Electron", "React", "TypeScript", "Python", "OpenCV", "FFmpeg", "Tailwind CSS", "Konva.js"]
+cover: "img/watermark-remove.png"
+repo: "https://github.com/pandaind/watermark-remove"
+stack: ["Electron", "React", "TypeScript", "Python", "OpenCV", "FFmpeg", "Tailwind CSS", "Konva.js"]
 status: "Completed"
 featured: false
 weight: 9
+year: 2026
 ---
 
 ## 🧭 Overview

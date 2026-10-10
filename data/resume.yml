@@ -1,0 +1,54 @@
+basics:
+  name: Chittaranjan Panda
+  label: Software engineer
+  email: connect@pandac.in
+  url: https://www.pandac.in/
+  summary: >-
+    A tech enthusiast with expertise in Java/J2EE, Spring, and Docker. Certified in Scrum Master,
+    Kubernetes, and Java SE. Skilled in problem-solving, leading teams, and driving innovation.
+    Passionate about exploring new technologies and continuous learning. Always eager for new
+    challenges and opportunities to innovate.
+work:
+  - company: Amadeus Labs
+    role: Software Development Engineer 4
+    start: March 2023
+    highlights:
+      - Led migration of API management portal to Azure Cloud, ensuring seamless integration and delivery.
+      - Facilitated Agile ceremonies, managing sprints and retrospectives for continuous improvement.
+      - Collaborated with stakeholders to prioritize backlog and provide technical support on Azure Cloud migration and API management.
+  - company: Eurofins IT Delivery Center
+    role: Module Lead
+    start: September 2015
+    end: March 2024
+    location: 7 years, 6 months
+    highlights:
+      - Built an enterprise-wide messaging infrastructure that is robust, scalable, reliable, high-performing, and fault-tolerant using Apache Camel, JBoss Fuse, and Spring Boot.
+      - Integrated existing ERP systems with Coupa ERP.
+      - Developed web applications with Spring Boot, Apache Cassandra, Angular, Angular Material, and ngrx.
+  - company: Quadwave Consulting Pvt. Ltd.
+    role: Software Engineer
+    start: June 2013
+    end: September 2015
+    location: 2 years, 3 months
+    highlights:
+      - Built web applications with Spring Boot, jQuery, and Thymeleaf.
+      - Created an Android Native IoT interfacing app to control household appliances.
+      - Developed a web-based application with Spring, Hibernate, MySQL, JSP, and jQuery-UI.
+education:
+  - school: BPUT - Odisha
+    degree: B. Tech in Information Technology
+    start: 2008
+    end: 2012
+skills:
+  - { group: Languages & Frameworks, items: [Java, Spring Framework, Spring Boot, Hibernate] }
+  - { group: Integration & Messaging, items: [Apache Camel, Apache Kafka, ActiveMQ, JBoss Fuse] }
+  - { group: Cloud Platforms, items: [Azure Cloud, AWS Cloud] }
+  - { group: Containerization & Orchestration, items: [Docker, Kubernetes] }
+  - { group: Databases, items: [Cassandra DB] }
+  - { group: Frontend Technologies, items: [Angular 6 & 8] }
+certifications:
+  - { name: Certified SAFe® 6 Scrum Master (SSM) }
+  - { name: Certified Kubernetes Application Developer (CKAD) }
+languages:
+  - { name: English }
+  - { name: Japanese, level: N5 }

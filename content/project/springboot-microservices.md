@@ -1,15 +1,16 @@
 ---
 title: "E-Commerce Microservices"
 date: 2025-01-20
-summary: "Learning project: Microservices architecture with Spring Boot, Spring Cloud, and Kubernetes."
-description: "Educational e-commerce platform demonstrating microservices architecture with Spring Boot 3.x, Spring Cloud, service discovery, API gateway, event-driven communication, and Kubernetes deployment."
+description: "Learning project: Microservices architecture with Spring Boot, Spring Cloud, and Kubernetes."
+abstract: "Educational e-commerce platform demonstrating microservices architecture with Spring Boot 3.x, Spring Cloud, service discovery, API gateway, event-driven communication, and Kubernetes deployment."
 tags: ["Spring Boot", "Microservices", "Spring Cloud", "Kubernetes", "Docker", "Kafka"]
-thumbnail: "/img/springboot-microservices.png"
-github: "https://github.com/pandaind/springboot-microservices"
-tech_stack: ["Spring Boot", "Spring Cloud", "Java 21", "PostgreSQL", "MongoDB", "Kafka", "Kubernetes", "Docker"]
+cover: "img/springboot-microservices.png"
+repo: "https://github.com/pandaind/springboot-microservices"
+stack: ["Spring Boot", "Spring Cloud", "Java 21", "PostgreSQL", "MongoDB", "Kafka", "Kubernetes", "Docker"]
 status: "Learning"
 featured: false
 weight: 4
+year: 2025
 ---
 
 ## 🧭 Overview

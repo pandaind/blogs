@@ -1,9 +1,7 @@
 ---
-# title: "Projects Portfolio"
-summary: "A showcase of innovative solutions and technical achievements"
-description: "Explore my portfolio of software projects spanning distributed systems, AI/ML, blockchain, and full-stack development"
+title: Projects
+description: Exploring technologies through building, breaking, and learning.
+layout: projects
+sort_by: weight
 ---
-# 🛠️ My Dev Lab
-Exploring technologies through building, breaking, and learning.
-
-
+Things I have built while learning. Each one is a working project with its source on GitHub.

@@ -1,178 +1,50 @@
-baseURL: "https://pandac.in/"
+# Site configuration for Meteorite (https://github.com/pandaind/meteorite).
 title: PandaC
-pagination:
-  paginate: 5
-theme: PaperMod
-
-enableRobotsTXT: true
-buildDrafts: false
-buildFuture: false
-buildExpired: false
-
-minify:
-  disableXML: true
-  minifyOutput: true
-  disableJS: false
-  disableCSS: false
-  disableHTML: false
-  disableJSON: false
-  disableSVG: false
-  tdewolff:
-    js:
-      keepVarNames: false
-      precision: 0
-      removeConsole: true  # Remove console.log statements in production
+base_url: https://pandac.in/
+language: en
+theme: devlog
 
 params:
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  description: "Chittaranjan Panda's personal page"
-  keywords: [Blog, Portfolio, Resume, Personal, Website, PANDAC, Chittaranjan Panda, Panda IND, Panda C, Chittaranjan, Panda]
-  author: PandaC
-  # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
-  DateFormat: "January 2, 2006"
-  defaultTheme: auto # dark, light, auto
-  disableThemeToggle: false
+  handle: pandac
+  tagline: Full-stack developer. Java, Rust, AI and cloud.
+  avatar: img/pandac.png
+  email: connect@pandac.in
+  favicon: img/favico/favicon.ico
+  color_scheme: auto
+  skin: slate
+  blog_section: blogs
+  notes_section: thoughts
+  projects_section: project
+  footer_text: "PandaC · Chittaranjan Panda"
 
-  # Section configuration
-  mainSections: ["blogs"]  # Only blogs appear on home page
-  
-  # Popup Chat Configuration
-  popupChat:
-    enabled: true
-    autoPopup: true
-    autoPopupDelay: 3000  # milliseconds
-    title: "Hello, How are you today?"
-    subtitle: "Please share your details below"
-    teamResponse: "Expect delay in response"
-
-  ShowReadingTime: true
-  ShowShareButtons: true
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
-  ShowWordCount: true
-  ShowRssButtonInSectionTermList: true
-  UseHugoToc: false
-  disableSpecial1stPost: false
-  disableScrollToTop: false
-  comments: false
-  hidemeta: false
-  hideSummary: false
-  showtoc: false
-  tocopen: false
-  ShareButtons: ["linkedin", "twitter"]
-  searchHidden: false
-
-
-
-  assets:
-    # disableHLJS: true # to disable highlight.js
-    # disableFingerprinting: true
-    favicon: "/img/favico/favicon.ico"
-    favicon16x16: "/img/favico/favicon-16x16.png"
-    favicon32x32: "/img/favico/favicon-32x32.png"
-    customCSS: "/css/custom.css"
-
-#  label:
-#    text: "Panda IND"
-#    icon: /img/logo.svg
-#    iconHeight: 35
-
-  # profile-mode
-  # profileMode:
-  #   enabled: true # needs to be explicitly set
-  #   # title: 
-  #   # subtitle: "Coding Specialist, Multi-Platform Developer"
-  #   imageUrl: "/img/pandac.png"
-  #   imageWidth: 420
-  #   imageHeight: 400
-  #   imageTitle: pandac
-  #   buttons:
-  #     - name: Resume
-  #       url: /resume/
-      # - name: Projects
-        # url: /projects/
-#      - name: Tags
-#        url: tags
-
-  homeInfoParams:
-    Title: Hi 👋, I'm Chittaranjan
-    Content: A full-stack developer who loves turning real-world problems into simple, effective solutions. I care about writing clean, scalable code and have a strong passion for AI, cloud tech, and building smarter, more reliable software.
-
-
-  socialIcons:
-    - name: email
-      url: "mailto:connect@pandac.in"
-    - name: github
-      url: "https://github.com/pandaind"
-    - name: linkedin
-      url: "https://linkedin.com/in/pandac"
-    - name: X
-      url: "https://x.com/pandadebug"
-    # - name: medium
-      # url: "https://medium.com/@pandaind"
-
-  cover:
-    hidden: true # hide everywhere but not in structured data
-    hiddenInList: true # hide on list pages and home
-    hiddenInSingle: true # hide on single page
-    responsiveImages: true
-
-  # https://fusejs.io/api/options.html
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    keys: ["title", "permalink", "summary", "content"]
-menu:
+menus:
   main:
-    - identifier: blogs
-      name: Blogs
-      url: /blogs/
-      weight: 20
-      pre: "<i class='fas fa-blog'></i> "
-    - identifier: search
-      name: Search
-      url: /search/
-      weight: 10
-      pre: "<i class='fas fa-search'></i> "
-    - identifier: projects
-      name: Projects
-      url: /project/
-      weight: 50
-      pre: "<i class='fas fa-flask'></i> "
-    - identifier: thoughts
-      name: Microblogs
-      url: /thoughts/
-      weight: 25
-      pre: "<i class='fas fa-feather-alt'></i> "
-    # - identifier: tags
-    #   name: Tags
-    #   url: /tags/
-    #   weight: 30
-    #   pre: "<i class='fas fa-tags'></i> "
-    # - identifier: archive
-    #   name: Archive
-    #   url: /archives/
-    #   weight: 40
-    #   pre: "<i class='fas fa-archive'></i> "
+    - { name: Blogs, url: /blogs/, weight: 1 }
+    - { name: Projects, url: /project/, weight: 2 }
+    - { name: Microblogs, url: /thoughts/, weight: 3 }
+    - { name: Resume, url: /resume/, weight: 4 }
 
-# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
-pygmentsUseClasses: true
-markup:
-  highlight:
-    noClasses: false
-    # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
-    # lineNos: true
-    # style: monokai
-outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON # is necessary
+taxonomies: [tags]
+paginate_by: 10
+
+feed:
+  enabled: true
+
+search:
+  enabled: true
+
+markdown:
+  highlight: true
+  highlight_theme: InspiredGitHub
+  highlight_theme_dark: base16-ocean.dark
+
+build:
+  drafts: false
+  minify: true
+
+# The chat widget replaces the old hand-written popup chat. It loads when the visitor clicks the
+# button, and talks to the PopTalk backend.
+chat:
+  provider: poptalk
+  api_url: https://api.pandac.logic.ist
+  welcome: Ask me about my posts, projects or work

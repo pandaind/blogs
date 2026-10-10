@@ -1,15 +1,16 @@
 ---
 title: "Pandac Store - Plant E-Commerce Platform"
 date: 2025-06-15
-summary: "Learning project: Full-stack e-commerce with React, Spring Boot, and Docker."
-description: "Educational full-stack e-commerce application demonstrating React 19, Spring Boot 3.5, MySQL, Nginx reverse proxy, JWT authentication, and payment integration."
+description: "Learning project: Full-stack e-commerce with React, Spring Boot, and Docker."
+abstract: "Educational full-stack e-commerce application demonstrating React 19, Spring Boot 3.5, MySQL, Nginx reverse proxy, JWT authentication, and payment integration."
 tags: ["Spring Boot", "React", "E-Commerce", "Docker", "Full-Stack"]
-thumbnail: "/img/pandac-store.png"
-github: "https://github.com/pandaind/pandac-store"
-tech_stack: ["React", "Spring Boot", "Java 21", "MySQL", "Nginx", "Docker", "Stripe"]
+cover: "img/pandac-store.png"
+repo: "https://github.com/pandaind/pandac-store"
+stack: ["React", "Spring Boot", "Java 21", "MySQL", "Nginx", "Docker", "Stripe"]
 status: "Learning"
 featured: false
 weight: 3
+year: 2025
 ---
 
 ## 🧭 Overview

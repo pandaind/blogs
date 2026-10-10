@@ -1,15 +1,16 @@
 ---
 title: "Kubernetes Local Manager 2.0 Ubuntu"
 date: 2025-08-17
-summary: "Spin up a full Kubernetes playground on your laptop with one script—databases, messaging, monitoring, and more."
-description: "A modular local Kubernetes manager that makes it easy to deploy 21+ components like Redis, Kafka, PostgreSQL, Elasticsearch, Istio, and Prometheus. With interactive menus and quick wizards, you get a production-like dev environment in minutes"
+description: "Spin up a full Kubernetes playground on your laptop with one script—databases, messaging, monitoring, and more."
+abstract: "A modular local Kubernetes manager that makes it easy to deploy 21+ components like Redis, Kafka, PostgreSQL, Elasticsearch, Istio, and Prometheus. With interactive menus and quick wizards, you get a production-like dev environment in minutes"
 tags: ["Kubernetes", "DevTools", "Minikube", "Helm", "Docker"]
-thumbnail: "/img/k8s-manager.png"
-github: "https://github.com/pandaind/k8s-setup-manager"
-tech_stack: ["Bash", "Kubernetes", "Helm", "Docker", "Minikube"]
+cover: "img/k8s-manager.png"
+repo: "https://github.com/pandaind/k8s-setup-manager"
+stack: ["Bash", "Kubernetes", "Helm", "Docker", "Minikube"]
 status: "Stable"
 featured: false
 weight: 1
+year: 2025
 ---
 
 ## 🧭 Overview

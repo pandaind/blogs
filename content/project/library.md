@@ -1,15 +1,16 @@
 ---
 title: "Library Management System"
 date: 2025-08-10
-summary: "Learning project: GraphQL and gRPC microservices with Spring Boot and PostgreSQL."
-description: "Educational Library Management System demonstrating GraphQL API development, gRPC inter-service communication, Spring Boot microservices architecture, JPA/Hibernate, Docker deployment, and automated testing."
+description: "Learning project: GraphQL and gRPC microservices with Spring Boot and PostgreSQL."
+abstract: "Educational Library Management System demonstrating GraphQL API development, gRPC inter-service communication, Spring Boot microservices architecture, JPA/Hibernate, Docker deployment, and automated testing."
 tags: ["Spring Boot", "GraphQL", "gRPC", "Java", "Microservices", "Docker", "PostgreSQL"]
-thumbnail: "/img/library-system.png"
-github: "https://github.com/pandaind/library"
-tech_stack: ["Spring Boot", "GraphQL", "gRPC", "Java 17", "PostgreSQL", "Docker", "Protocol Buffers"]
+cover: "img/library-system.png"
+repo: "https://github.com/pandaind/library"
+stack: ["Spring Boot", "GraphQL", "gRPC", "Java 17", "PostgreSQL", "Docker", "Protocol Buffers"]
 status: "Learning"
 featured: false
 weight: 6
+year: 2025
 ---
 
 ## 🧭 Overview

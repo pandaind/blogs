@@ -1,15 +1,16 @@
 ---
 title: "POS API"
 date: 2025-10-15
-summary: "Learning project: Point of Sale API with FastAPI, PostgreSQL, and Docker."
-description: "Educational POS system API demonstrating authentication, inventory management, sales tracking, and testing. FastAPI, PostgreSQL, SQLAlchemy, and Alembic."
+description: "Learning project: Point of Sale API with FastAPI, PostgreSQL, and Docker."
+abstract: "Educational POS system API demonstrating authentication, inventory management, sales tracking, and testing. FastAPI, PostgreSQL, SQLAlchemy, and Alembic."
 tags: ["FastAPI", "Python", "PostgreSQL", "REST API", "Docker"]
-thumbnail: "/img/pandac-pos.png"
-github: "https://github.com/pandaind/pandac-pos"
-tech_stack: ["Python", "FastAPI", "PostgreSQL", "Docker", "SQLAlchemy", "Alembic"]
+cover: "img/pandac-pos.png"
+repo: "https://github.com/pandaind/pandac-pos"
+stack: ["Python", "FastAPI", "PostgreSQL", "Docker", "SQLAlchemy", "Alembic"]
 status: "Learning"
 featured: false
 weight: 2
+year: 2025
 ---
 
 ## 🧭 Overview
