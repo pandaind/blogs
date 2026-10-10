@@ -6,7 +6,7 @@ tags: ["Spring Boot", "React", "WebSocket", "Java", "Agile", "Real-time"]
 cover: "img/estimate.png"
 repo: "https://github.com/pandaind/estimate"
 stack: ["Spring Boot", "React", "Java 21", "WebSocket", "H2 Database", "Vite", "Tailwind CSS"]
-weight: 5
+weight: 8
 year: 2026
 ---
 A planning poker tool. Everyone joins a session with a short code, votes on a story, and the votes are revealed together. Updates go over WebSockets, so the room stays in sync without refreshing.

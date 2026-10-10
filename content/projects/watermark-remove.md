@@ -6,7 +6,7 @@ tags: ["Electron", "React", "Python", "OpenCV", "FFmpeg", "TypeScript", "Vite"]
 cover: "img/watermark-remove.png"
 repo: "https://github.com/pandaind/watermark-remove"
 stack: ["Electron", "React", "TypeScript", "Python", "OpenCV", "FFmpeg", "Tailwind CSS", "Konva.js"]
-weight: 9
+weight: 12
 year: 2026
 ---
 A desktop app that removes static watermarks from video files on your own machine. Nothing is uploaded and there is no subscription.

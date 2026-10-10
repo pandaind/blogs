@@ -6,7 +6,7 @@ tags: ["Spring Boot", "React", "E-Commerce", "Docker", "Full-Stack"]
 cover: "img/pandac-store.png"
 repo: "https://github.com/pandaind/pandac-store"
 stack: ["React", "Spring Boot", "Java 21", "MySQL", "Nginx", "Docker", "Stripe"]
-weight: 3
+weight: 6
 year: 2025
 ---
 A small plant shop built end to end. React 19 on the front, a Spring Boot API behind it, MySQL for data and Nginx in front of both, all started with Docker Compose.

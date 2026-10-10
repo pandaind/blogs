@@ -6,7 +6,7 @@ tags: ["React", "FastAPI", "TypeScript", "Python", "AWS", "Terraform", "Docker"]
 cover: "img/todo-app.png"
 repo: "https://github.com/pandaind/todo-app"
 stack: ["React", "TypeScript", "FastAPI", "Python", "PostgreSQL", "Terraform", "AWS ECS", "Docker"]
-weight: 7
+weight: 10
 year: 2025
 ---
 A to-do app taken all the way to a real deployment. The front end is React with TypeScript, the back end is FastAPI with JWT login, and the data is in PostgreSQL. Locally it runs with Docker Compose; in the cloud it runs on AWS ECS, created with Terraform.
