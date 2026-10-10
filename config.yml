@@ -6,6 +6,7 @@ theme: devlog
 
 params:
   handle: pandac
+  avatar: img/avatar.jpg
   tagline: Full-stack developer. Java, Rust, AI and cloud.
   email: connect@pandac.in
   favicon: img/favico/favicon.ico
