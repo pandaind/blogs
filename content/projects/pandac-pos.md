@@ -6,7 +6,7 @@ tags: ["FastAPI", "Python", "PostgreSQL", "REST API", "Docker"]
 cover: "img/pandac-pos.png"
 repo: "https://github.com/pandaind/pandac-pos"
 stack: ["Python", "FastAPI", "PostgreSQL", "Docker", "SQLAlchemy", "Alembic"]
-weight: 5
+weight: 7
 year: 2025
 ---
 A point-of-sale API I wrote to get comfortable with FastAPI. It has login with JWT and roles, products and inventory, customers, sales and reports. PostgreSQL sits behind SQLAlchemy, Alembic handles migrations, and Docker Compose runs it all.

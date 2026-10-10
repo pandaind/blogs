@@ -6,7 +6,7 @@ tags: ["Spring Boot", "Microservices", "Spring Cloud", "Kubernetes", "Docker", "
 cover: "img/springboot-microservices.png"
 repo: "https://github.com/pandaind/springboot-microservices"
 stack: ["Spring Boot", "Spring Cloud", "Java 21", "PostgreSQL", "MongoDB", "Kafka", "Kubernetes", "Docker"]
-weight: 7
+weight: 9
 year: 2025
 ---
 An e-commerce backend broken into services, to see how the pieces fit together. Customer, product, order, payment and notification services sit behind an API gateway, with a config server and Eureka for configuration and discovery.

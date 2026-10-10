@@ -6,7 +6,7 @@ tags: ["Spring Boot", "GraphQL", "gRPC", "Java", "Microservices", "Docker", "Pos
 cover: "img/library-system.png"
 repo: "https://github.com/pandaind/library"
 stack: ["Spring Boot", "GraphQL", "gRPC", "Java 17", "PostgreSQL", "Docker", "Protocol Buffers"]
-weight: 9
+weight: 11
 year: 2025
 ---
 A library management system for trying GraphQL and gRPC together. A gateway exposes a GraphQL API, the user and book services talk to each other over gRPC, and PostgreSQL stores the data. Users can register, browse the catalogue and borrow books.

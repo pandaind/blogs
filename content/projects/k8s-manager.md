@@ -6,7 +6,7 @@ tags: ["Kubernetes", "DevTools", "Minikube", "Helm", "Docker"]
 cover: "img/k8s-manager.png"
 repo: "https://github.com/pandaind/k8s-setup-manager"
 stack: ["Bash", "Kubernetes", "Helm", "Docker", "Minikube"]
-weight: 4
+weight: 6
 year: 2025
 ---
 Setting up Kubernetes on a laptop usually eats a day before you write any code. This is a Bash script that does it for you on Ubuntu, and then deploys the things I keep needing: databases, caches, message queues, search and monitoring.
