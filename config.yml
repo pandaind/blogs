@@ -45,3 +45,5 @@ chat:
   provider: poptalk
   api_url: https://api.pandac.logic.ist
   welcome: Ask me about my posts, projects or work
+  knowledge:
+    publish: true
