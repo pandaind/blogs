@@ -39,6 +39,11 @@ build:
   drafts: false
   minify: true
 
+# llms.txt and llms-full.txt: the site in plain text for language models.
+llms:
+  full: true
+  summary: Chittaranjan Panda, full-stack developer. Writing and projects on Java, Rust, AI and cloud.
+
 # The chat widget replaces the old hand-written popup chat. It loads when the visitor clicks the
 # button, and talks to the PopTalk backend.
 chat:
